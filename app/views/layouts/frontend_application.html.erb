@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tcfdg</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'frontend_application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">
+          <%= image_tag "logo_text.gif", class: "img" %>
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <div class="pull-right">
+          <form class="navbar-form" role="search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="about_us">關於田調團</a>
+          </li>
+          <li>
+            <a href="#">城市故事</a>
+          </li>
+          <li>
+            <a href="/city-issue">城市議題</a>
+          </li>
+          <li>
+            <a href="%e6%b8%af%e5%8f%b0%e4%ba%a4%e6%b5%81">港台交流</a>
+          </li>
+          <li>
+            <a href="news">相關新聞</a>
+          </li>
+          <li>
+            <a href="contact_us">聯絡我們</a>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </nav>
+
+  <%= yield %>
+
+  <footer class="footer" id="copyright">
+    <div class="container-fluid">
+      <div class="left">
+        台中城市發展田調團 | Copyright © 2016 Taichung-Fieldwork.  All Rights Reserved.
+        <div style="padding-top: 10px">
+          除另有註明，網站之內容皆採用
+          <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/tw/">
+            創用CC 姓名標示-非商業性-禁止改作授權 3.0 台灣 授權條款
+          </a>
+        </div>
+      </div>
+      <div class="right">
+        <a href="https://www.facebook.com/taichungfieldwork">
+          <%= image_tag 'fb_icon.png', alt: "Facebook", width: "32", class: "size-full wp-image-110", style: "margin-right: 5px" %>
+        </a>
+        <a href="http://feeds.feedburner.com/taichung-fieldwork/rss" rel="alternate">
+          <img src="//feedburner.google.com/fb/images/pub/feed-icon32x32.png" style="border: 0">
+        </a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
