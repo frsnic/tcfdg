@@ -32,15 +32,23 @@ a:hover {
   color: white;
 }
 
+.ehdiv {
+　 margin-bottom: -10000px;
+　 padding-bottom: 10000px;
+　 background-color: #efefef;
+}
+
+#equalheight {
+  overflow: hidden;
+}
+
 @media (max-width: 767px) {
   .navbar-brand {
     padding: 0;
   }
-
   .navbar-brand img {
     width: 240px;
   }
-
   .bxslider .description {
     display: none;
   }
