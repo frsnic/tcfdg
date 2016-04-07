@@ -23,6 +23,15 @@ a:hover {
   margin-left: 5px;
 }
 
+.bxslider .description {
+  position: absolute;
+  bottom: 17%;
+  left: 2%;
+  z-index: 10;
+  width: 100%;
+  color: white;
+}
+
 @media (max-width: 767px) {
   .navbar-brand {
     padding: 0;
@@ -30,6 +39,10 @@ a:hover {
 
   .navbar-brand img {
     width: 240px;
+  }
+
+  .bxslider .description {
+    display: none;
   }
 }
 

@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'frontend_application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'frontend_application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "application", "frontend/#{controller_name}" %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -67,9 +69,7 @@
       <div class="pull-left" style="margin: 3px;">
         台中城市發展田調團 | Copyright © 2016. All Rights Reserved.<br>
         除另有註明，網站內容皆採用
-        <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/tw/">
-          創用 CC BY-NC-ND 3.0 TW
-        </a>
+        <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/tw/">創用 CC BY-NC-ND 3.0 TW</a>
       </div>
       <div class="pull-right">
         <a href="https://www.facebook.com/taichungfieldwork">
