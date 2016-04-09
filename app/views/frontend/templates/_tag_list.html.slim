@@ -1,8 +1,7 @@
-aside
+aside.bottom-buffer
   h4.widget-title 標籤
-  - post_times = post_year_month_list(10)
-  ul
-    - post_times.each do |post_time|
-      li
-        = link_to("#{post_time[0]}年#{post_time[1]}月", "/date/#{post_time[0]}/#{post_time[1]}")
-
+  div style="padding: 0 15px;"
+    - tag_count = PostTag.group(:tag_id).count
+    - search_tag_ids = tag_count.sort_by { |k, v| v }.reverse[0..99].map { |e| e[0] }
+    - Tag.where(id: search_tag_ids).select(:id, :name).find_each do |tag|
+      = link_to tag.name, "/tags/#{tag.name}", title: "#{tag_count[tag.id]} 篇話題", style: search_tag_ids.index(tag.id) < 5 ? "font-size: 22pt;" : ""

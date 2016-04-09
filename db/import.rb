@@ -20,3 +20,21 @@ WPDB::Post.find_each do |post|
     updated_at: post.post_modified
   )
 end
+
+WPDB::Term.find_each do |tag|
+  Tag.create(
+    id: tag.id,
+    name: tag.name,
+    created_at: Time.now,
+    updated_at: Time.now
+  )
+end
+
+WPDB::TermRelationship.find_each do |post_tag|
+  PostTag.create(
+    post_id: post_tag.object_id,
+    tag_id: post_tag.term_taxonomy_id,
+    created_at: Time.now,
+    updated_at: Time.now
+  )
+end

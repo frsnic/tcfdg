@@ -15,7 +15,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :post_type
       t.string :mime_type
       t.integer :comment_count
-      t.timestamps
+      t.timestamps null: false
     end
     add_index :posts, :author_id
     add_index :posts, :category_id
