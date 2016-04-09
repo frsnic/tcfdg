@@ -2,7 +2,7 @@
 //= require bxslider/jquery.bxslider.min
 // require_self
 
-$(document).ready(function() {
+$(document).on('ready page:load', function() {
 
   $('.bxslider').bxSlider({
     auto: true,
