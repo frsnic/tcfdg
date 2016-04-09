@@ -20,7 +20,8 @@ ul.bxslider
         .row
           .col-md-1.col-xs-1
           .col-md-10.col-xs-10.inner-box
-            h3 活動資訊
+            h3.one-line-solgan
+              | 活動資訊
             ul style="text-align: left;"
               li
                 | 台中市區域計畫新版草案讀書會
@@ -46,7 +47,7 @@ ul.bxslider
           .col-md-.col-xs-1
           .col-md-10.col-xs-10.inner-box
             - post = Post.post.publish.first
-            h3
+            h3.one-line-solgan
               = post.title
             p
               = post.summary

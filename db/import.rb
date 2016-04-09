@@ -38,3 +38,20 @@ WPDB::TermRelationship.find_each do |post_tag|
     updated_at: Time.now
   )
 end
+
+WPDB::Comment.find_each do |comment|
+  Comment.create(
+    post_id: comment.comment_post_ID,
+    name: comment.comment_author,
+    email: comment.comment_author_email,
+    url: comment.comment_author_url,
+    ip: comment.comment_author_IP,
+    content: comment.comment_content,
+    approved: comment.comment_approved == "1" ? true : false,
+    agent: comment.comment_agent,
+    user_id: comment.user_id,
+    created_at: comment.comment_date,
+    updated_at: comment.comment_date
+  )
+end
+

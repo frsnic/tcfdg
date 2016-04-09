@@ -1,8 +1,7 @@
 aside.bottom-buffer
-  h4.widget-title 彙整
+  h4 彙整
   - post_times = post_year_month_list(10)
   ul
     - post_times.each do |post_time|
       li
         = link_to("#{post_time[0]}年#{post_time[1]}月", "/date/#{post_time[0]}/#{post_time[1]}")
-

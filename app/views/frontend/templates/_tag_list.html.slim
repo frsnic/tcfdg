@@ -1,5 +1,5 @@
 aside.bottom-buffer
-  h4.widget-title 標籤
+  h4 標籤
   div style="padding: 0 15px;"
     - tag_count = PostTag.group(:tag_id).count
     - search_tag_ids = tag_count.sort_by { |k, v| v }.reverse[0..99].map { |e| e[0] }

@@ -56,6 +56,14 @@ ul {
   }
 }
 
+.one-line-solgan {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inherit;
+  word-break: break-word;
+}
+
 #copyright {
   background: #666565;
   color: #fff;
