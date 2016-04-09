@@ -57,6 +57,4 @@ gem 'simple_form'
 
 gem 'kaminari'
 
-
-
-
+gem "wpdb_activerecord"

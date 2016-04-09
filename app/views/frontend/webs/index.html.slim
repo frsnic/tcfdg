@@ -47,8 +47,8 @@ ul.bxslider
           .col-md-10.col-xs-10.inner-box
             - post = Post.post.publish.first
             h3
-              = post.post_title
+              = post.title
             p
-              = truncate(post.post_content, length: 150)
+              = post.summary
             a href="/about_us"  Read More ...
       div.bottom-padding

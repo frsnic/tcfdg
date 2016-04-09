@@ -1,0 +1,2 @@
+WPDB_PREFIX: "wp_" # the table of WPDB::Post is cgjbugpbs_posts, not wp_posts
+WPDB_USER_CLASS: "WUser"

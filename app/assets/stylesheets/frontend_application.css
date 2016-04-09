@@ -13,6 +13,10 @@ a:hover {
   color: #ff9600
 }
 
+ul {
+  padding: 0 20px;
+}
+
 .navbar-fixed-top .nav {
   padding: 15px 0;
   background-color: #fff;
@@ -67,6 +71,10 @@ a:hover {
 #footer a:hover,
 #copyright a:hover {
   color: #7ab040;
+}
+
+#sidebar ul {
+  list-style: none;
 }
 
 .blog-post {
