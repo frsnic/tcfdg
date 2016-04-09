@@ -1,4 +1,5 @@
 /*
+ *= require bxslider/jquery.bxslider
  *= require_directory ./skt-corp
  */
 
@@ -23,6 +24,10 @@ a:hover {
   margin-left: 5px;
 }
 
+.bx-wrapper {
+  margin: 0 auto 45px;
+}
+
 .bxslider .description {
   position: absolute;
   bottom: 17%;
@@ -30,16 +35,6 @@ a:hover {
   z-index: 10;
   width: 100%;
   color: white;
-}
-
-.ehdiv {
-　 margin-bottom: -10000px;
-　 padding-bottom: 10000px;
-　 background-color: #efefef;
-}
-
-#equalheight {
-  overflow: hidden;
 }
 
 @media (max-width: 767px) {
@@ -51,6 +46,9 @@ a:hover {
   }
   .bxslider .description {
     display: none;
+  }
+  #equalheight .bottom-padding {
+    background-color: #fff;
   }
 }
 

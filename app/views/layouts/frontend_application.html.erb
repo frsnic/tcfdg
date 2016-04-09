@@ -2,11 +2,10 @@
 <html>
 <head>
   <title>Tcfdg</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'frontend_application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'frontend_application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "application", "frontend/#{controller_name}" %>
+  <%= stylesheet_link_tag 'application', 'frontend_application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "application", "frontend_application", 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "frontend/#{controller_name}", media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "frontend/#{controller_name}", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 

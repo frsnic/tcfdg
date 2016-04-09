@@ -1,7 +1,3 @@
-<!-- bxSlider -->
-= javascript_include_tag 'bxslider/jquery.bxslider.min.js'
-= stylesheet_link_tag 'bxslider/jquery.bxslider.css'
-
 ul.bxslider
   li
     a href="/city-story"
@@ -17,8 +13,42 @@ ul.bxslider
         br 與台灣城市面臨開發危機，市民文化與常民生活該何去何從呢?
         | 一起跟著臺中城市發展田調團來關注港台交流吧!
 
-.alert.alert-success role="alert"  ...
-.alert.alert-info role="alert"  ...
-.alert.alert-warning role="alert"  ...
-.alert.alert-danger role="alert"  ...
-
+.row.bottom-buffer
+  #equalheight
+    .col-md-4.col-xs-12
+      .ehdiv
+        .row
+          .col-md-1.col-xs-1
+          .col-md-10.col-xs-10.inner-box
+            h3 活動資訊
+            ul style="text-align: left;"
+              li
+                | 台中市區域計畫新版草案讀書會
+                br 時間：2015-12-12 13:00
+              li
+                | 聯絡方式：
+                a href="mailto: info@taichung-fieldwork.org" info@taichung-fieldwork.org
+            a href="https://goo.gl/XNAviR&#10;" target="_blank" Read More ...
+      div.bottom-padding
+    .col-md-4.col-xs-12
+      .ehdiv
+        .row
+          .col-md-1.col-xs-1
+          .col-md-10.col-xs-10.inner-box
+            h3 我們是誰
+            p 一群來自台中或認同台中的青年，不論身在何處，我們討論更好的城市想像，並著手實踐。
+            p 一座城市的發展需要市民共同形塑和參與，才能注入民主與活力。然而，過往的城市發展在制度面與執行面都排除了市民參與的可能。我們的核心價值是在台中落實「市民城市與權利」。
+            a href="/about_us"  Read More ...
+      div.bottom-padding
+    .col-md-4.col-xs-12
+      .ehdiv
+        .row
+          .col-md-.col-xs-1
+          .col-md-10.col-xs-10.inner-box
+            - post = Post.post.publish.first
+            h3
+              = post.post_title
+            p
+              = truncate(post.post_content, length: 150)
+            a href="/about_us"  Read More ...
+      div.bottom-padding
