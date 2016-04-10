@@ -1,0 +1,12 @@
+article.bottom-buffer
+  - comments.each do |comment|
+    = content_tag "div", id: "comment-#{comment.id}", style: "comment-meta"
+      .comment-metadata
+        h4
+          cite.fn
+            = comment.name
+          span style="padding: 0 10px;" on
+          = link_to comment.updated_at.strftime("%Y-%m-%d"), "/#{comment.post.id}/#{comment.post.handle}#comment-#{comment.id}"
+    .comment-content
+      p
+        = comment.content

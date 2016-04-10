@@ -12,7 +12,7 @@ WPDB::Post.find_each do |post|
     comment_status: post.comment_status,
     ping_status: post.ping_status,
     password: post.post_password,
-    handle: post.post_name,
+    handle: URI.unescape(post.post_name),
     post_type: post.post_type,
     mime_type: post.post_mime_type,
     comment_count: post.comment_count,

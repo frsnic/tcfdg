@@ -4,7 +4,7 @@
       header.entry-header
         h2
           = @post.title
-      .row
+      .row.bottom-buffer
         .col-md-12
           .postmeta
             h4
@@ -12,6 +12,10 @@
               = @post.comments.present? ? "#{@post.comments.count}則迴響" : "無迴響"
           .entry-content
             = @post.content.html_safe
+      hr
+      .row
+        .col-md-12
+          = render partial: 'frontend/posts/comments', locals: { comments: @post.comments }
 
     #sidebar.col-md-3.col-xs-12
       = render 'frontend/templates/time_list'
