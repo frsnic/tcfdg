@@ -1,0 +1,13 @@
+.container-fluid.bottom-buffer
+  .row
+    .col-md-12.col-xs-12
+      header.entry-header.bottom-buffer
+        h2 全部分類
+      .row.news_list
+        .col-md-12.tbody
+          ul
+            - Category.includes(:posts).find_each do |category|
+                li
+                  h4
+                    = link_to category.name, "/categories/#{category.handle}", style: "margin-right: 10px;"
+                    = "(#{category.posts.count})"

@@ -1,0 +1,15 @@
+.container-fluid.bottom-buffer
+  .row
+    .col-md-12.col-xs-12
+      header.entry-header.bottom-buffer
+        h2
+          = @category.name
+      .row
+        .col-md-12
+          - @recent_posts.each do |post|
+            .col-md-12.tr
+              h3
+                = post.title
+              hr
+      .row.text-center
+        = paginate @recent_posts

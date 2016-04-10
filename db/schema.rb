@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410053549) do
+ActiveRecord::Schema.define(version: 20160410082544) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "handle",     limit: 255
+    t.integer  "parent_id",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
+
+  create_table "category_posts", force: :cascade do |t|
+    t.integer "category_id", limit: 4
+    t.integer "post_id",     limit: 4
+  end
+
+  add_index "category_posts", ["category_id", "post_id"], name: "index_category_posts_on_category_id_and_post_id", using: :btree
+  add_index "category_posts", ["category_id"], name: "index_category_posts_on_category_id", using: :btree
+  add_index "category_posts", ["post_id"], name: "index_category_posts_on_post_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id",      limit: 4
@@ -40,10 +59,8 @@ ActiveRecord::Schema.define(version: 20160410053549) do
   end
 
   create_table "post_tags", force: :cascade do |t|
-    t.integer  "post_id",    limit: 4
-    t.integer  "tag_id",     limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer "post_id", limit: 4
+    t.integer "tag_id",  limit: 4
   end
 
   add_index "post_tags", ["post_id", "tag_id"], name: "index_post_tags_on_post_id_and_tag_id", using: :btree

@@ -11,13 +11,16 @@ Rails.application.routes.draw do
       post 'send_email'
     end
 
+    scope :categories do
+      get  '/',        to: 'categories#index'
+      get  '/:handle', to: 'categories#show'
+    end
+
     scope :tags do
       get  '/', to: 'tags#index'
     end
 
-    scope :news do
-      get  '/',    to: 'news#index'
-    end
+    get  'news',    to: 'news#index'
   end
 
   # Example of regular route:

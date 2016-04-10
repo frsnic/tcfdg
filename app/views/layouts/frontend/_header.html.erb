@@ -25,22 +25,18 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="about_us">關於田調團</a>
+          <%= link_to "關於田調團", about_us_path %>
+        </li>
+        <% Category.select(:id, :name, :handle).find_each do |category| %>
+          <li>
+            <%= link_to category.name, "/categories/#{category.handle}" %>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to "相關新聞", news_path %>
         </li>
         <li>
-          <a href="#">城市故事</a>
-        </li>
-        <li>
-          <a href="/city-issue">城市議題</a>
-        </li>
-        <li>
-          <a href="%e6%b8%af%e5%8f%b0%e4%ba%a4%e6%b5%81">港台交流</a>
-        </li>
-        <li>
-          <a href="news">相關新聞</a>
-        </li>
-        <li>
-          <a href="contact_us">聯絡我們</a>
+          <%= link_to "聯絡我們", contact_us_path %>
         </li>
       </ul>
     </div><!--/.nav-collapse -->

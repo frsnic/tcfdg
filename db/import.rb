@@ -64,3 +64,26 @@ WPDB::New.find_each do |new|
     updated_at: new.post_time
   )
 end
+
+WPDB::Term.category.find_each do |category|
+  Category.create(
+    id: category.term_id,
+    name: category.name,
+    created_at: Time.now,
+    updated_at: Time.now
+  )
+end
+# Category.first.delete
+# Category.find_by_name("城市議題").update(handle: "city-issue")
+# Category.find_by_name("城市故事").update(handle: "city-story")
+# Category.find_by_name("港台交流").update(handle: "hk-communicate")
+
+WPDB::Post.find_each do |wp_post|
+  post = Post.find_by_id(wp_post.id)
+  if post && post.post? && post.publish?
+    wp_post.categories.each do |category|
+      post.categories << Category.find(category.term_id)
+    end
+  end
+end
+
