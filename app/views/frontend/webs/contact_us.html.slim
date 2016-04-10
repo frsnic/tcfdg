@@ -1,0 +1,38 @@
+.row.bottom-buffer
+  .col-md-6.col-xs-12
+    h3 聯絡資訊
+    hr
+    p
+      | 結合熱愛臺中、關心臺中，用自己的腳去破除主流論述，看到屬於臺中真正的日常生活，論述出屬於臺中的故事。
+      ul.list-unstyled
+        li style="padding: 10px;"
+          i.glyphicon.glyphicon-home.pull-left style="margin-right: 5px;"
+          | Facebook：
+          a href="https://www.facebook.com/taichungfieldwork"
+            | 台中城市發展田調團
+        li style="padding: 10px;"
+          i.glyphicon.glyphicon-envelope.pull-left style="margin-right: 5px;"
+          | 聯絡信箱：
+          a href="mailto: info@taichung-fieldwork.org"
+            | info@taichung-fieldwork.org
+
+  .col-md-6.col-xs-12
+    h3 聯絡我們
+    hr
+    p
+      = form_tag send_email_path, :method => :post, class: "form-horizontal"
+        .form-group
+          .col-md-12
+            = text_field_tag "name", nil, placeholder: "姓名", class: "form-control", required: true
+        .form-group
+          .col-md-12
+            = email_field_tag "email", nil, placeholder: "Email", class: "form-control", required: true
+        .form-group
+          .col-md-12
+            = text_field_tag "subject", nil, placeholder: "主旨", class: "form-control", required: true
+        .form-group
+          .col-md-12
+            = text_area_tag "content", nil, placeholder: "內容", row: 5, class: "form-control", required: true
+        .form-group
+          .col-md-12
+            = submit_tag "送出", class: "btn btn-default"

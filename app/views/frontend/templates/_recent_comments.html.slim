@@ -1,7 +1,7 @@
 aside.bottom-buffer
   h4 近期迴響
   - recent_comments = Comment.includes(:post).limit(5)
-  ul
+  ul.list-unstyled
     - recent_comments.each do |comment|
       li
         = comment.url.present? ? link_to("#{comment.name}", comment.url) : comment.name

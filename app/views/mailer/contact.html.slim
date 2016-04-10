@@ -1,0 +1,12 @@
+ul
+  li
+    寄件者：
+      = @params[:name]
+  li
+    Email：
+      = @params[:email]
+  li
+    主旨：
+      = @params[:subject]
+
+= @params[:content].html_safe

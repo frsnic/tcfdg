@@ -1,7 +1,7 @@
 aside.bottom-buffer
   h4 近期文章
   - recent_posts = Post.post.publish.limit(5).select(:id, :handle, :title)
-  ul
+  ul.list-unstyled
     - recent_posts.each do |post|
       li
         = link_to(post.title, "/#{post.id}/#{post.handle}")

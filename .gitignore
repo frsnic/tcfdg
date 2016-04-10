@@ -23,4 +23,5 @@ config/deploy.rb
 config/deploy/*
 config/database.yml
 config/initializers/session_store.rb
+config/email.yml
 
