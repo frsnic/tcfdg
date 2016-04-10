@@ -1,0 +1,31 @@
+.container-fluid.bottom-buffer
+  .row
+    .col-md-9.col-xs-12
+      header.entry-header.bottom-buffer
+        h2 相關新聞
+      .row.news_list
+        .col-md-12.thead
+          .col-md-8.th
+            h4
+              b 標題
+          .col-md-2.th
+            h4
+              b 連結
+          .col-md-2.th
+            h4
+              b 時間
+        .col-md-12.tbody
+          - @recent_news.each do |news|
+            .col-md-12.tr
+              .col-md-8.one-line-solgan
+                = news.title
+              .col-md-2
+                = link_to "點我觀看", news.link, target: "_blank"
+              .col-md-2
+                = news.posted_at.strftime("%Y-%m-%d")
+      .row.text-center
+        = paginate @recent_news
+
+    #sidebar.col-md-3.col-xs-12
+      = render 'frontend/templates/recent_posts'
+      = render 'frontend/templates/recent_comments'

@@ -55,3 +55,12 @@ WPDB::Comment.find_each do |comment|
   )
 end
 
+WPDB::New.find_each do |new|
+  News.create(
+    title: new.title,
+    link: new.link,
+    posted_at: new.post_time,
+    created_at: new.post_time,
+    updated_at: new.post_time
+  )
+end

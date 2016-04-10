@@ -1,6 +1,6 @@
 aside.bottom-buffer
   h4 標籤
-  div
+  .entry-content
     - tag_count = PostTag.group(:tag_id).count
     - search_tag_ids = tag_count.sort_by { |k, v| v }.reverse[0..99].map { |e| e[0] }
     - Tag.where(id: search_tag_ids).select(:id, :name).find_each do |tag|

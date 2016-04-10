@@ -4,10 +4,19 @@ Rails.application.routes.draw do
 
   scope module: :frontend do
     root to: 'webs#index'
+
     scope module: :webs do
       get  'about_us'
       get  'contact_us'
       post 'send_email'
+    end
+
+    scope :tags do
+      get  '/', to: 'tags#index'
+    end
+
+    scope :news do
+      get  '/',    to: 'news#index'
     end
   end
 
