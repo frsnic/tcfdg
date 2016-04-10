@@ -3,7 +3,7 @@
     .col-md-12.col-xs-12
       header.entry-header.bottom-buffer
         h2
-          = @category.name
+          = "彙整：#{@begin_day.strftime('%m月 %Y')}"
       .row
         - @recent_posts.each do |post|
           .col-md-12

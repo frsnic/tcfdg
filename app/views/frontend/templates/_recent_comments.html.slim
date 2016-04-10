@@ -5,4 +5,4 @@ aside.bottom-buffer
     - recent_comments.each do |comment|
       li
         = comment.url.present? ? link_to("#{comment.name}", comment.url) : comment.name
-        = link_to(" 在 #{comment.post.title}", "/#{comment.post.id}/#{comment.post.handle}#comment-#{comment.id}")
+        = link_to " 在 #{comment.post.title}", comment_path(comment)

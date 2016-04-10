@@ -1,6 +1,7 @@
 class Frontend::CategoriesController < Frontend::ApplicationController
 
   def index
+    @categories = Category.includes(:posts)
   end
 
   def show
