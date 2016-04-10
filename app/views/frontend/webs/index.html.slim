@@ -51,6 +51,6 @@
               h3.one-line-solgan
                 = post.title
               p
-                = post.summary
-              a href="/about_us"  Read More ...
+                = summary(post)
+              = link_to "Read More ...", "/#{post.id}/#{post.handle}"
         .bottom-padding

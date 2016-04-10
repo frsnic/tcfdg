@@ -10,6 +10,12 @@
             .col-md-12.tr
               h3
                 = post.title
+                small style="margin-left: 10px;"
+                  = post.posted_at.strftime("%Y-%m-%d")
+              p
+                = truncate(strip_tags(post.content), length: 500)
+                = link_to "Continue Reading...", "/#{post.id}/#{post.handle}", style: "margin-left: 10px;"
               hr
+
       .row.text-center
         = paginate @recent_posts

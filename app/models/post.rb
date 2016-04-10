@@ -39,10 +39,6 @@ class Post < ActiveRecord::Base
 
   # class methods .............................................................
   # public instance methods ...................................................
-  def summary(length = 150)
-    (excerpt.present? ? excerpt : content).truncate(length)
-  end
-
   def post?
     post_type == "post"
   end

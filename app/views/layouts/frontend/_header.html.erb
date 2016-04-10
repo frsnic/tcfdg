@@ -29,7 +29,7 @@
         </li>
         <% Category.select(:id, :name, :handle).find_each do |category| %>
           <li>
-            <%= link_to category.name, "/categories/#{category.handle}" %>
+            <%= link_to category.name, "/#{category.handle}" %>
           </li>
         <% end %>
         <li>

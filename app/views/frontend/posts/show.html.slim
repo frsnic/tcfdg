@@ -1,0 +1,20 @@
+.container-fluid.bottom-buffer
+  .row
+    .col-md-9.col-xs-12
+      header.entry-header
+        h2
+          = @post.title
+      .row
+        .col-md-12
+          .postmeta
+            h4
+              = "#{@post.posted_at.strftime("%Y-%m-%d")} | "
+              = @post.comments.present? ? "#{@post.comments.count}則迴響" : "無迴響"
+          .entry-content
+            = @post.content.html_safe
+
+    #sidebar.col-md-3.col-xs-12
+      = render 'frontend/templates/time_list'
+      = render 'frontend/templates/tag_list'
+      = render 'frontend/templates/recent_posts'
+      = render 'frontend/templates/recent_comments'

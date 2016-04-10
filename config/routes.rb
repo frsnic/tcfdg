@@ -16,11 +16,17 @@ Rails.application.routes.draw do
       get  '/:handle', to: 'categories#show'
     end
 
+    scope :posts do
+      get  '/:handle', to: 'posts#show'
+    end
+
     scope :tags do
       get  '/', to: 'tags#index'
     end
 
-    get  'news',    to: 'news#index'
+    get  '/news',        to: 'news#index'
+    get  '/:handle',     to: 'categories#show'
+    get  '/:id/:handle', to: 'posts#show'
   end
 
   # Example of regular route:
