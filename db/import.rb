@@ -29,6 +29,7 @@ WPDB::Term.find_each do |tag|
     updated_at: Time.now
   )
 end
+# Tag.find(9).delete
 
 WPDB::TermRelationship.find_each do |post_tag|
   PostTag.create(

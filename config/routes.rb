@@ -21,12 +21,14 @@ Rails.application.routes.draw do
     end
 
     scope :tags do
-      get  '/', to: 'tags#index'
+      get  '/',      to: 'tags#index'
+      get  '/:name', to: 'tags#show'
     end
 
-    get  '/news',        to: 'news#index'
-    get  '/:handle',     to: 'categories#show'
-    get  '/:id/:handle', to: 'posts#show'
+    get  '/news',              to: 'news#index'
+    get  '/date/:year/:month', to: 'webs#date'
+    get  '/:handle',           to: 'categories#show'
+    get  '/:id/:handle',       to: 'posts#show'
   end
 
   # Example of regular route:
