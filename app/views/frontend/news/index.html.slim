@@ -1,3 +1,4 @@
+- title "相關新聞"
 .container-fluid.bottom-buffer
   .row
     .col-md-9.col-xs-12
@@ -15,7 +16,7 @@
             h4
               b 時間
         .col-md-12.tbody
-          - @recent_news.each do |news|
+          - @news.each do |news|
             .col-md-12.tr
               .col-md-8.one-line-solgan
                 = news.title
@@ -24,7 +25,7 @@
               .col-md-2
                 = news.posted_at.strftime("%Y-%m-%d")
       .row.text-center
-        = paginate @recent_news
+        = paginate @news
 
     #sidebar.col-md-3.col-xs-12
       = render 'frontend/templates/time_list'

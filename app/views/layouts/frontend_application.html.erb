@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tcfdg</title>
+  <%= favicon_link_tag %>
+  <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
+  <%= content_tag :title, content_for?(:title) ? "#{yield(:title)} | 台中城市發展田調團" : "台中城市發展田調團" %>
   <%= stylesheet_link_tag 'application', 'frontend_application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "application", "frontend_application", 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag "frontend/#{controller_name}", media: 'all', 'data-turbolinks-track' => true %>
