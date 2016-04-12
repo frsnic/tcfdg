@@ -1,4 +1,3 @@
-# WPDB::Post.first.as_json.keys.map { |k| k.downcase }
 WPDB::Post.find_each do |post|
   Post.create(
     id: post.id,
@@ -88,3 +87,16 @@ WPDB::Post.find_each do |wp_post|
   end
 end
 
+WPDB::Activity.find_each do |activity|
+  Activity.create(
+    id: activity.id,
+    name: activity.name,
+    location: activity.location,
+    link: activity.link,
+    is_public: activity.is_public,
+    start_at: activity.start_at,
+    created_at: activity.created_at,
+    updated_at: activity.updated_at
+  )
+end
+#Activity.first.update(is_public: true)

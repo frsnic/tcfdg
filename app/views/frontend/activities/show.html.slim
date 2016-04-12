@@ -1,0 +1,26 @@
+- title @activity.name
+.container-fluid.bottom-buffer
+  .row
+    .col-md-9.col-xs-12
+      header.entry-header
+        h2
+          = @activity.name
+      .row
+        .col-md-12
+          ul style="text-align: left;"
+            li
+              | 時間：
+              = @activity.start_at.strftime("%Y-%m-%d %H:%M").sub(" 00:00", "")
+            - if @activity.location.present?
+              li
+                | 地點：
+                = @activity.location
+            li
+              | 聯絡方式：
+              a href="mailto: info@taichung-fieldwork.org" info@taichung-fieldwork.org
+            - if @activity.link.present?
+              li
+                = link_to "參考連結", @activity.link, target: "_blank"
+
+    #sidebar.col-md-3.col-xs-12
+      = render 'frontend/templates/recent_posts'

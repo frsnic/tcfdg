@@ -23,14 +23,23 @@
             .col-md-10.col-xs-10.inner-box
               h3.one-line-solgan
                 | 活動資訊
-              ul style="text-align: left;"
-                li
-                  | 台中市區域計畫新版草案讀書會
-                  br 時間：2015-12-12 13:00
-                li
-                  | 聯絡方式：
-                  a href="mailto: info@taichung-fieldwork.org" info@taichung-fieldwork.org
-              a href="https://goo.gl/XNAviR&#10;" target="_blank" Read More ...
+              = link_to @activity.name, activity_path(@activity)
+              p
+                ul style="text-align: left;"
+                  li
+                    | 時間：
+                    = @activity.start_at.strftime("%Y-%m-%d %H:%M").sub(" 00:00", "")
+                  - if @activity.location.present?
+                    li
+                      | 地點：
+                      = @activity.location
+                  li
+                    | 聯絡方式：
+                    a href="mailto: info@taichung-fieldwork.org" info@taichung-fieldwork.org
+                  - if @activity.link.present?
+                    li
+                      = link_to "參考連結", @activity.link, target: "_blank"
+                = link_to "Read More ...", "/activities"
         .bottom-padding
       .col-md-4.col-xs-12
         .ehdiv

@@ -12,6 +12,10 @@ module ApplicationHelper
     "/#{comment.post.id}/#{comment.post.handle}#comment-#{comment.id}"
   end
 
+  def activity_path(activity)
+    "/activities/#{activity.id}"
+  end
+
   def title(page_title = nil)
     content_for :title, page_title
   end

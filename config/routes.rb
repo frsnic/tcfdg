@@ -25,6 +25,11 @@ Rails.application.routes.draw do
       get  '/:name', to: 'tags#show'
     end
 
+    scope :activities do
+      get  '/',    to: 'activities#index'
+      get  '/:id', to: 'activities#show'
+    end
+
     get  '/news',              to: 'news#index'
     get  '/date/:year/:month', to: 'webs#date'
     get  '/:handle',           to: 'categories#show'

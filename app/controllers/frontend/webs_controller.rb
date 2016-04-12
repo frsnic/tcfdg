@@ -1,6 +1,8 @@
 class Frontend::WebsController < Frontend::ApplicationController
 
   def index
+    @activity = Activity.is_public.where("start_at > ?", Time.now).order('start_at asc').first
+    @activity = Activity.is_public.where("start_at < ?", Time.now).first unless @activity
   end
 
   def about_us

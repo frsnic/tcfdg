@@ -1,0 +1,38 @@
+- title "活動資訊"
+.container-fluid.bottom-buffer
+  .row
+    .col-md-9.col-xs-12
+      header.entry-header.bottom-buffer
+        h2 活動資訊
+      .row.news_list
+        .col-md-12.thead
+          .col-md-4.th
+            h4
+              b 活動名稱
+          .col-md-3.th
+            h4
+              b 時間
+          .col-md-3.th
+            h4
+              b 地點
+          .col-md-2.th
+            h4
+              b 連結
+        .col-md-12.tbody
+          - @activities.each do |activity|
+            .col-md-12.tr
+              .col-md-4.one-line-solgan
+                = activity.name
+              .col-md-3
+                = activity.start_at.strftime("%Y-%m-%d %H:%M").sub(" 00:00", "")
+              .col-md-3.one-line-solgan
+                = activity.location
+              .col-md-2
+                - if activity.link
+                  = link_to "連結", activity_path(activity), target: "_blank"
+      .row.text-center
+        = paginate @activities
+
+    #sidebar.col-md-3.col-xs-12
+      = render 'frontend/templates/time_list'
+      = render 'frontend/templates/recent_posts'
