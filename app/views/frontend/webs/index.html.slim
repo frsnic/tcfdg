@@ -22,8 +22,8 @@
             .col-md-1.col-xs-1
             .col-md-10.col-xs-10.inner-box
               h3.one-line-solgan
-                | 活動資訊
-              = link_to @activity.name, activity_path(@activity)
+                | 近期活動
+              = @activity.name
               p
                 ul style="text-align: left;"
                   li
@@ -39,7 +39,7 @@
                   - if @activity.link.present?
                     li
                       = link_to "參考連結", @activity.link, target: "_blank"
-                = link_to "Read More ...", "/activities"
+                = link_to "Read More ...", activity_path(@activity)
         .bottom-padding
       .col-md-4.col-xs-12
         .ehdiv
