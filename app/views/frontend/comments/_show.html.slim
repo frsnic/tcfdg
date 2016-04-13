@@ -6,7 +6,8 @@ article.bottom-buffer
           cite.fn
             = comment.name
           span style="padding: 0 10px;" on
-          = link_to comment.updated_at.strftime("%Y-%m-%d"), comment_path(comment)
+          = link_to comment.updated_at.strftime("%Y-%m-%d %M:%H"), comment_path(comment)
     .comment-content
       p
         = comment.content
+  hr

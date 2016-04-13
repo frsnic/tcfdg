@@ -12,28 +12,27 @@ Rails.application.routes.draw do
     end
 
     scope :categories do
-      get  '/',        to: 'categories#index'
-      get  '/:handle', to: 'categories#show'
+      get  '/',     to: 'categories#index'
     end
 
     scope :posts do
-      get  '/:handle', to: 'posts#show'
+      post '/:post_id/comment', to: 'comments#create', as: :post_comments
     end
 
-    scope :tags do
+    scope :tags, as: :tags do
       get  '/',      to: 'tags#index'
       get  '/:name', to: 'tags#show'
     end
 
     scope :activities do
       get  '/',    to: 'activities#index'
-      get  '/:id', to: 'activities#show'
+      get  '/:id', to: 'activities#show', as: :activity
     end
 
     get  '/news',              to: 'news#index'
     get  '/date/:year/:month', to: 'webs#date'
-    get  '/:handle',           to: 'categories#show'
-    get  '/:id/:handle',       to: 'posts#show'
+    get  '/:id/:handle',       to: 'posts#show', as: :post
+    get  '/:handle',           to: 'categories#show', as: :category
   end
 
   # Example of regular route:

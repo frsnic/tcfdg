@@ -61,5 +61,5 @@
                 = post.title
               p
                 = summary(post)
-              = link_to "Read More ...", post_path(post)
+              = link_to "Read More ...", post_path(post.id, post.handle)
         .bottom-padding

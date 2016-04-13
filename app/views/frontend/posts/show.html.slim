@@ -16,7 +16,10 @@
       hr
       .row
         .col-md-12
-          = render partial: 'frontend/posts/comments', locals: { comments: @post.comments }
+          = render partial: 'frontend/comments/show', locals: { comments: @post.comments } if @post.comments.present?
+      .row
+        .col-md-12
+          = render partial: 'frontend/comments/new', locals: { post: @post, comment: @post.comments.new }
 
     #sidebar.col-md-3.col-xs-12
       = render 'frontend/templates/time_list'

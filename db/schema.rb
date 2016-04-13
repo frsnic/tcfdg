@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412155211) do
+ActiveRecord::Schema.define(version: 20160413173628) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -48,13 +48,13 @@ ActiveRecord::Schema.define(version: 20160412155211) do
     t.string   "email",        limit: 255
     t.string   "url",          limit: 255
     t.string   "ip",           limit: 255
-    t.string   "content",      limit: 255
+    t.text     "content",      limit: 65535
     t.boolean  "approved"
     t.string   "agent",        limit: 255
     t.string   "comment_type", limit: 255
     t.integer  "user_id",      limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree

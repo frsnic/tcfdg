@@ -1,0 +1,15 @@
+article.bottom-buffer
+  .row
+    .col-md-12
+      .panel.panel-info
+        .panel-heading
+          h4
+            | 發表迴響
+        .panel-body
+          = simple_form_for comment, url: post_comments_path(post), html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+              = f.error_notification
+              = f.input  :name,    label: '名稱',     required: true
+              = f.input  :email,   label: '電子郵件', required: true
+              = f.input  :url,     label: '個人網站', required: false
+              = f.input  :content, label: '迴響',     required: true
+              = f.button :submit, "張貼迴響", class: "pull-right"
