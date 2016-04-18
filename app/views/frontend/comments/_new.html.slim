@@ -1,4 +1,6 @@
-article.bottom-buffer
+script src='https://www.google.com/recaptcha/api.js?hl=zh-TW'
+
+article#new-comment.bottom-buffer
   .row
     .col-md-12
       .panel.panel-info
@@ -6,10 +8,22 @@ article.bottom-buffer
           h4
             | 發表迴響
         .panel-body
-          = simple_form_for comment, url: post_comments_path(post), html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
-              = f.error_notification
-              = f.input  :name,    label: '名稱',     required: true
-              = f.input  :email,   label: '電子郵件', required: true
-              = f.input  :url,     label: '個人網站', required: false
-              = f.input  :content, label: '迴響',     required: true
-              = f.button :submit, "張貼迴響", class: "pull-right"
+          = simple_form_for comment, url: post_comments_path(post), remote: true, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+              #new-comment-errors.form-group.hide
+                .col-sm-3
+                .col-sm-6
+                  ul
+              = f.input  :name,    label: '名稱'
+              = f.input  :email,   label: '電子郵件'
+              = f.input  :url,     label: '個人網站'
+              = f.input  :content, label: '迴響'
+              .form-group
+                .col-sm-3
+                .col-sm-6
+                  = recaptcha
+                .col-sm-3
+                  = f.button :submit, "張貼迴響"
+
+script#new-comment-error type="text/x-handlebars-template"
+  li.text-error
+    | {{{message}}}

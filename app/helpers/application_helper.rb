@@ -8,4 +8,8 @@ module ApplicationHelper
     content_for :title, page_title
   end
 
+  def recaptcha
+    content_tag(:div, "", data: { sitekey: Setting.recaptcha.public_key }, class: "g-recaptcha")
+  end
+
 end

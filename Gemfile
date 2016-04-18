@@ -58,3 +58,9 @@ gem 'simple_form'
 gem 'kaminari'
 
 gem "wpdb_activerecord"
+
+gem 'handlebars_assets'
+
+gem 'settingslogic'
+
+gem 'resque'

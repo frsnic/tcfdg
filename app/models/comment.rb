@@ -6,6 +6,9 @@ class Comment < ActiveRecord::Base
   belongs_to :post
 
   # validations ...............................................................
+  validates_presence_of :name, :email, :content
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+
   # callbacks .................................................................
   # scopes ....................................................................
   default_scope { order('updated_at DESC') }

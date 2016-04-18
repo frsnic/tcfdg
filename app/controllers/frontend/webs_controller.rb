@@ -17,8 +17,8 @@ class Frontend::WebsController < Frontend::ApplicationController
   end
 
   def send_email
-    Mailer.contact(params).deliver_later
-    redirect_to contact_us_path, success: "發送成功" and return
+    Resque.enqueue(MailJob, params)
+    redirect_to contact_us_path, flash: { success: "發送成功" } and return
   end
 
 end

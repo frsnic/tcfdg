@@ -1,12 +1,12 @@
-ul
+ul style="padding: 0;"
   li
-    寄件者：
-      = @params[:name]
+    | 寄件者：
+    = @params['name']
   li
-    Email：
-      = @params[:email]
+    | Email：
+    = @params['email']
   li
-    主旨：
-      = @params[:subject]
+    | 主旨：
+    = @params['subject']
 
-= @params[:content].html_safe
+= @params['content'].try(:html_safe)
