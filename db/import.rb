@@ -100,3 +100,15 @@ WPDB::Activity.find_each do |activity|
   )
 end
 #Activity.first.update(is_public: true)
+
+WPDB::User.find_each do |user|
+  User.create(
+    id: user.id,
+    name: user.display_name,
+    identify: user.user_login,
+    password: SecureRandom.hex(6),
+    email: user.user_email,
+    created_at: user.user_registered,
+    updated_at: user.user_registered
+  )
+end
