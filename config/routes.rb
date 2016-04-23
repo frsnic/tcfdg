@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   scope "/admin", module: :backend do
     devise_for :users, controllers: { sessions: "backend/devise/sessions" }
 
-    get "/", to: 'dashboard#index'
+    get "/", to: 'dashboard#index', as: :dashboard
+
+    resources :posts do
+    end
 
     mount Resque::Server.new, :at => "resque"
   end
@@ -19,27 +22,15 @@ Rails.application.routes.draw do
       post 'send_email'
     end
 
-    scope :categories do
-      get  '/',     to: 'categories#index'
-    end
-
-    scope :posts do
-      post '/:post_id/comment', to: 'comments#create', as: :post_comments
-    end
-
-    scope :tags, as: :tags do
-      get  '/',      to: 'tags#index'
-      get  '/:name', to: 'tags#show'
-    end
-
-    scope :activities do
-      get  '/',    to: 'activities#index'
-      get  '/:id', to: 'activities#show', as: :activity
-    end
-
+    get  '/categories',        to: 'categories#index'
+    post '/:post_id/comment',  to: 'comments#create', as: :post_comments
+    get  '/tags',              to: 'tags#index'
+    get  '/tags/:name',        to: 'tags#show'
+    get  '/activities',        to: 'activities#index'
+    get  '/activities/:id',    to: 'activities#show', as: :activity
     get  '/news',              to: 'news#index'
     get  '/date/:year/:month', to: 'webs#date'
-    get  '/:id/:handle',       to: 'posts#show', as: :post
+    get  '/:id/:handle',       to: 'posts#show',      as: :article
     get  '/:handle',           to: 'categories#show', as: :category
   end
 

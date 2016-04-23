@@ -9,18 +9,25 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
+<body style="padding-top: 70px;">
+
+<%= render 'layouts/backend/header' %>
 
 <div class="container">
-
-  <%= render 'layouts/backend/header' %>
-
   <%= content_tag(:div, flash[:notice].html_safe,  class: "alert alert-info")    if flash[:notice].present? %>
   <%= content_tag(:div, flash[:success].html_safe, class: "alert alert-success") if flash[:success].present? %>
   <%= content_tag(:div, flash[:warning].html_safe, class: "alert alert-warning") if flash[:warning].present? %>
   <%= content_tag(:div, flash[:error].html_safe,   class: "alert alert-danger")  if flash[:error].present? %>
 
-  <%= yield %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= render 'layouts/backend/sidebar' %>
+    </div>
+
+    <div class="col-md-10">
+      <%= yield %>
+    </div>
+  </div>
 
 </div>
 

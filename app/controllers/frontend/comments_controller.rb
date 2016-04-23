@@ -6,7 +6,7 @@ class Frontend::CommentsController < Frontend::ApplicationController
     @post = Post.find params[:post_id]
     @comment = @post.comments.build(comment_params)
     if errors.blank? && @comment.save
-      render json: { url: post_path(@post.id, @post.handle) + "#comment-#{@comment.id}" }
+      render json: { url: article_path(@post.id, @post.handle) + "#comment-#{@comment.id}" }
     else
       errors ||= []
       errors += @comment.errors.full_messages

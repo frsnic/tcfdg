@@ -41,3 +41,15 @@
 .text-error {
   color: #b94a48;
 }
+
+tbody tr td.action a {
+  margin: 0 5px;
+}
+
+.one-line-solgan {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inherit;
+  word-break: break-word;
+}
