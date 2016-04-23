@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-
   scope "/admin", module: :backend do
+    devise_for :users, controllers: { sessions: "backend/devise/sessions" }
+
     get "/", to: 'dashboard#index'
 
     mount Resque::Server.new, :at => "resque"

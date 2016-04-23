@@ -1,2 +1,1 @@
-//= require backend/global
-// require_self
+//= require_directory ./backend
