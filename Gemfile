@@ -64,3 +64,5 @@ gem 'handlebars_assets'
 gem 'settingslogic'
 
 gem 'resque'
+
+gem 'devise'

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= favicon_link_tag %>
+  <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
+  <%= content_tag :title, content_for?(:title) ? "#{yield(:title)} | #{Setting.name}" : Setting.name %>
+  <%= stylesheet_link_tag 'application', 'backend_application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "application", "backend_application", 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "backend/#{controller_name}", media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "backend/#{controller_name}", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div class="container">
+
+  <%= render 'layouts/backend/header' %>
+
+  <%= content_tag(:div, flash[:notice].html_safe,  class: "alert alert-info")    if flash[:notice].present? %>
+  <%= content_tag(:div, flash[:success].html_safe, class: "alert alert-success") if flash[:success].present? %>
+  <%= content_tag(:div, flash[:warning].html_safe, class: "alert alert-warning") if flash[:warning].present? %>
+  <%= content_tag(:div, flash[:error].html_safe,   class: "alert alert-danger")  if flash[:error].present? %>
+
+  <%= yield %>
+
+  <%= render 'layouts/backend/footer' %>
+
+</div>
+
+</body>
+</html>

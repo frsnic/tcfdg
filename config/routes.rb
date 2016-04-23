@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  mount Resque::Server.new, :at => "/admin/resque"
+
+  scope "/admin", module: :backend do
+    get "/", to: 'dashboard#index'
+
+    mount Resque::Server.new, :at => "resque"
+  end
 
   scope module: :frontend do
     root to: 'webs#index'
