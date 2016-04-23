@@ -3,12 +3,20 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', () ->
-  $("#new_comment").on("ajax:success", (e, data, status, xhr) ->
-    Turbolinks.visit data.url
-  ).on "ajax:error", (e, data, status, xhr) ->
-    template = Handlebars.compile $('#new-comment-error').html()
-    $("#new-comment-errors ul").html ""
-    $.each data.responseJSON.message, (index, value) ->
-      $("#new-comment-errors ul").append template { 'message': value }
-    $("#new-comment-errors").removeClass("hide")
-    grecaptcha.reset()
+  $("#new_comment_submit").click ->
+    $("#new_comment_submit").attr("disabled", true)
+    $.ajax
+      url: $("#new_comment").attr("action"),
+      method: "POST",
+      data: $("#new_comment").serialize(),
+      dataType: "json",
+      success: (result) ->
+        Turbolinks.visit result.url
+      error: (result) ->
+        template = Handlebars.compile $('#new-comment-error').html()
+        $("#new-comment-errors ul").html ""
+        $.each result.responseJSON.message, (index, value) ->
+          $("#new-comment-errors ul").append template { 'message': value }
+        $("#new-comment-errors").removeClass("hide")
+        $("#new_comment_submit").attr("disabled", false)
+        grecaptcha.reset()

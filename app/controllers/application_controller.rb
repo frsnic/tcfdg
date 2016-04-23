@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   private
 
   def check_grecaptcha(response)
+    return false if params['g-recaptcha-response'].blank?
+
     uri = URI("https://www.google.com/recaptcha/api/siteverify")
     https = Net::HTTP.new(uri.host, uri.port)
     https.use_ssl = true
