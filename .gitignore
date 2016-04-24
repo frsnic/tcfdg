@@ -26,5 +26,5 @@ config/database.yml
 config/initializers/session_store.rb
 config/app_config.yml
 config/initializers/ckeditor_dragonfly.rb
-public/uploads/*
+public/files/*
 

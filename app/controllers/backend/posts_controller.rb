@@ -43,7 +43,7 @@ class Backend::PostsController < Backend::ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :status, :posted_at, category_ids: :[], tag_ids: :[])
   end
 
 end
