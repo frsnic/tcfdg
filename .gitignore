@@ -16,6 +16,7 @@
 !/log/.keep
 /tmp
 /test
+dragonfly.log
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
@@ -24,4 +25,6 @@ config/deploy/*
 config/database.yml
 config/initializers/session_store.rb
 config/app_config.yml
+config/initializers/ckeditor_dragonfly.rb
+public/uploads/*
 

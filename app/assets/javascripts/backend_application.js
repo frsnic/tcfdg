@@ -1,5 +1,5 @@
 //= require_directory ./backend
-//= require ckeditor-jquery
+//= require ckeditor/init
 
 $(document).on('ready page:load', function() {
 

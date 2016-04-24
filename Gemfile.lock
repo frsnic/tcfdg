@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (6.0.3)
     awesome_print (1.6.1)
     bcrypt (3.1.11)
@@ -44,8 +45,13 @@ GEM
     builder (3.2.2)
     byebug (8.2.4)
     choice (0.2.0)
-    ckeditor_rails (4.5.3)
-      railties (>= 3.0)
+    ckeditor (4.1.6)
+      cocaine
+      orm_adapter (~> 0.5.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -61,6 +67,10 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    dragonfly (1.0.12)
+      addressable (~> 2.3)
+      multi_json (~> 1.0)
+      rack (>= 1.3.0)
     erubis (2.7.0)
     execjs (2.6.0)
     globalid (0.3.6)
@@ -215,9 +225,10 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   byebug
-  ckeditor_rails
+  ckeditor
   coffee-rails (~> 4.1.0)
   devise
+  dragonfly
   handlebars_assets
   jbuilder (~> 2.0)
   jquery-rails

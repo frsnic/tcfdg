@@ -9,11 +9,11 @@ class Backend::PostsController < Backend::ApplicationController
   end
 
   def new
-    @post = Post.new(post_type: :post)
+    @post = current_user.posts.new
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params.merge(post_type: :post))
     if @post.save
       redirect_to posts_path, flash: { success: "新增成功" }
     else
@@ -43,7 +43,7 @@ class Backend::PostsController < Backend::ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :post_type)
+    params.require(:post).permit(:title, :content)
   end
 
 end

@@ -67,4 +67,6 @@ gem 'resque'
 
 gem 'devise'
 
-gem 'ckeditor_rails'
+gem 'ckeditor'
+
+gem 'dragonfly'
