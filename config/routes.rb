@@ -2,13 +2,16 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+
+  devise_for :users, controllers: { sessions: "backend/devise/sessions" }
+  devise_scope :user do
+    get  '/sign_in', to: 'backend/devise/sessions#new', as: 'sign_in'
+  end
+
   scope "/admin", module: :backend do
-    devise_for :users, controllers: { sessions: "backend/devise/sessions" }
+    get '/', to: 'dashboard#index', as: :dashboard
 
-    get "/", to: 'dashboard#index', as: :dashboard
-
-    resources :posts do
-    end
+    resources :posts
 
     mount Resque::Server.new, :at => "resque"
   end
@@ -22,8 +25,8 @@ Rails.application.routes.draw do
       post 'send_email'
     end
 
-    get  '/categories',        to: 'categories#index'
     post '/:post_id/comment',  to: 'comments#create', as: :post_comments
+    get  '/categories',        to: 'categories#index'
     get  '/tags',              to: 'tags#index'
     get  '/tags/:name',        to: 'tags#show'
     get  '/activities',        to: 'activities#index'

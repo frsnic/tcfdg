@@ -19,6 +19,10 @@ class Backend::PostsController < Backend::ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    @post = Post.find params[:id]
+    @post.delete
+    redirect_to posts_path, flash: { success: "刪除成功" }
   end
+
 end
