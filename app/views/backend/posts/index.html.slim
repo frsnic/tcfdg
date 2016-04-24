@@ -12,13 +12,13 @@
       - @posts.each do |post|
         tr
           td
-            = link_to post.title, edit_post_path(post), class: "one-line-solgan", style: "max-width: 400px;"
+            = link_to post.title, edit_post_path(post), data: { no_turbolink: true }, class: "one-line-solgan", style: "max-width: 400px;"
           td
             = post.user.try(:name)
           td
             = post.categories.first.try(:name)
           td.text-center
-            = post.comments.count > 0 ? post.comments.count : ""
+            = post.comments.size
           td
             = post.created_at.strftime("%Y-%m-%d %M:%H")
           td.action

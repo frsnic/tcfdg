@@ -1,0 +1,5 @@
+= simple_form_for post, url: post do |f|
+  = f.input  :title,   label: '標題'
+  = f.text_area :content, :class => 'ckeditor'
+  .form-group
+    = f.button :submit, "發表", id: "new_comment_submit", class: "btn btn-primary top-buffer"

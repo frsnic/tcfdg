@@ -18,7 +18,7 @@
           </a>
           <ul class="dropdown-menu forAnimate" role="menu">
             <%= nav_link "全部文章", posts_path %>
-            <%= nav_link "新增文章", new_post_path %>
+            <%= nav_link "新增文章", new_post_path, data: { no_turbolink: true } %>
           </ul>
         </li>
         <li class="dropdown">

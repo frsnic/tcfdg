@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423170235) do
+ActiveRecord::Schema.define(version: 20160424055704) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -92,8 +92,9 @@ ActiveRecord::Schema.define(version: 20160423170235) do
     t.string   "post_type",      limit: 255
     t.string   "mime_type",      limit: 255
     t.integer  "comment_count",  limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "comments_count", limit: 4,     default: 0
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree

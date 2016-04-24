@@ -66,3 +66,5 @@ gem 'settingslogic'
 gem 'resque'
 
 gem 'devise'
+
+gem 'ckeditor_rails'
