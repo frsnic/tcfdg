@@ -1,9 +1,13 @@
 = simple_form_for post, url: post do |f|
+  = f.error_notification
   = f.input :title, label: false, placeholder: '標題'
   = f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, label: false
   = f.association :categories, as: :check_boxes, label: '分類'
+  = link_to "新增分類", 'javascript:void(0)'
   = f.association :tags, as: :check_boxes, label: '標籤'
   = f.input :posted_at, label: "發表時間"
   = f.input :status, collection: [["公開", :puslish], ["草稿", :draft]], selected: :publish, label: "狀態"
   .form-group
     = f.button :submit, "發表", id: "new_comment_submit", class: "btn btn-primary top-buffer"
+
+# simple_form_for post, url: post do |f|

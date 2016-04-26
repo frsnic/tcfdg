@@ -4,4 +4,4 @@ aside.bottom-buffer
   ul.list-unstyled
     - recent_posts.each do |post|
       li
-        = link_to(post.title, article_path(post.id, post.handle))
+        = link_to(post.title, frontend_post_path(post.id, post.handle))

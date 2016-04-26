@@ -1,0 +1,6 @@
+= simple_form_for category, html: { novalidate: true }, url: category do |f|
+  = f.error_notification
+  = f.input :name, label: '標題'
+  = f.input :handle, label: '網址'
+  .form-group
+    = f.button :submit, "發表", class: "btn btn-primary top-buffer"

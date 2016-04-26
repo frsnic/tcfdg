@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index', as: :dashboard
 
     resources :posts
+    resources :categories
 
     mount Resque::Server.new, :at => "resque"
   end
@@ -34,8 +35,8 @@ Rails.application.routes.draw do
     get  '/activities/:id',    to: 'activities#show', as: :activity
     get  '/news',              to: 'news#index'
     get  '/date/:year/:month', to: 'webs#date'
-    get  '/:id/:handle',       to: 'posts#show',      as: :article
-    get  '/:handle',           to: 'categories#show', as: :category
+    get  '/:id/:handle',       to: 'posts#show',      as: :frontend_post
+    get  '/:handle',           to: 'categories#show', as: :frontend_category
   end
 
   # Example of regular route:
