@@ -1,45 +1,116 @@
-<nav class="navbar navbar-default sidebar" role="navigation" id="sidebar_nav">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <%= nav_link "控制台", dashboard_path, icon: "pull-right hidden-xs showopacity glyphicon glyphicon-dashboard font-16" %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            文章
-            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pushpin"></span>
-          </a>
-          <ul class="dropdown-menu forAnimate" role="menu">
-            <%= nav_link "全部文章", posts_path %>
-            <%= nav_link "新增文章", new_post_path, data: { no_turbolink: true } %>
-            <%= nav_link "分類", categories_path, data: { no_turbolink: true } %>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Usuarios <span class="caret"></span>
-            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span>
-          </a>
-          <ul class="dropdown-menu forAnimate" role="menu">
-            <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
-            <li><a href="#">Modificar</a></li>
-            <li><a href="#">Reportar</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Informes</a></li>
-          </ul>
-        </li>
-        <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
-        <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-      </ul>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <%= nav_link "控制台", dashboard_path, icon: "glyphicon glyphicon-dashboard" %>
+      </h4>
     </div>
   </div>
-</nav>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <%= nav_link "文章", "javascript:void(0)", icon: "glyphicon glyphicon-pushpin", data: { toggle: "collapse", parent: "#accordion" } %>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <table class="table">
+          <tr>
+            <td>
+              <%= nav_link "全部文章", posts_path, icon: "glyphicon glyphicon-file" %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= nav_link "新增文章", new_post_path, icon: "glyphicon glyphicon-pencil", data: { no_turbolink: true } %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= nav_link "分類", categories_path, icon: "glyphicon glyphicon-folder-close", data: { no_turbolink: true } %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="glyphicon glyphicon-comment text-primary"></span>
+              <a href="http://www.jquery2dotnet.com">Comments</a>
+              <span class="badge">42</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
+        </span>Account</a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table class="table">
+          <tr>
+            <td>
+              <a href="http://www.jquery2dotnet.com">Change Password</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="http://www.jquery2dotnet.com">Notifications</a> <span class="label label-info">5</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="http://www.jquery2dotnet.com">Import/Export</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
+              Delete Account</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-flash">
+        </span>Reports</a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table class="table">
+          <tr>
+            <td>
+              <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sales</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Customers</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Products</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Shopping Cart</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
