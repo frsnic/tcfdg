@@ -2,12 +2,45 @@
   = f.error_notification
   = f.input :title, label: false, placeholder: '標題'
   = f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, label: false
-  = f.association :categories, as: :check_boxes, label: '分類'
-  = link_to "新增分類", 'javascript:void(0)'
-  = f.association :tags, as: :check_boxes, label: '標籤'
-  = f.input :posted_at, label: "發表時間"
-  = f.input :status, collection: [["公開", :puslish], ["草稿", :draft]], selected: :publish, label: "狀態"
-  .form-group
-    = f.button :submit, "發表", id: "new_comment_submit", class: "btn btn-primary top-buffer"
+  .row
+    .col-md-4
+      .panel.panel-default
+        .panel-heading 分類
+        .panel-body
+          .col-md-12.bottom-buffer
+            = f.association :categories, as: :check_boxes, label: false
+            = button_tag "新增分類", id: "new_category_btn", type: "button", data: { toggle: "modal", target: "#new-category" }
+    .col-md-4
+      .panel.panel-default
+        .panel-heading 標籤
+        .panel-body
+          .col-md-12.bottom-buffer.top-buffer
+            = f.association :tags, as: :text, label: false
+    .col-md-4
+      .panel.panel-default
+        .panel-heading 狀態
+        .panel-body
+          .col-md-12.bottom-buffer.top-buffer
+            = f.input :status, collection: [["公開", :puslish], ["草稿", :draft]], selected: :publish, label: false
+  .row
+    .col-md-8
+      = f.input :posted_at, label: "發表時間"
+    .col-md-4
+      .form-group
+        = f.button :submit, "發表文章", id: "new_comment_submit", class: "btn btn-primary top-buffer"
 
-# simple_form_for post, url: post do |f|
+.modal.fade role="dialog" tabindex="-1" id="new-category"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4.modal-title 請輸入預新增的分類名稱
+      .modal-body
+        = render "backend/categories/form", category: Category.new
+
+script#new-category-item type="text/x-handlebars-template"
+  span.checkbox
+    label for="post_category_ids_{{id}}"
+      input#post_category_ids_47.check_boxes.optional name="post[category_ids][]" type="checkbox" value="{{id}}" checked="true"
+      | {{name}}

@@ -14,6 +14,7 @@ class Backend::PostsController < Backend::ApplicationController
 
   def create
     @post = current_user.posts.new(post_params.merge(post_type: :post))
+
     if @post.save
       redirect_to posts_path, flash: { success: "新增成功" }
     else
@@ -36,14 +37,14 @@ class Backend::PostsController < Backend::ApplicationController
 
   def destroy
     @post = Post.find params[:id]
-    @post.delete
+    @post.destroy
     redirect_to posts_path, flash: { success: "刪除成功" }
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :status, :posted_at, category_ids: :[], tag_ids: :[])
+    params.require(:post).permit(:title, :content, :status, :posted_at, category_ids: [], tag_ids: [])
   end
 
 end

@@ -16,7 +16,10 @@ class Backend::CategoriesController < Backend::ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to categories_path, flash: { success: "新增成功" }
+      respond_to do |format|
+        format.html { redirect_to categories_path, flash: { success: "新增成功" } }
+        format.json { render :json => @category }
+      end
     else
       render :new
     end
@@ -37,7 +40,7 @@ class Backend::CategoriesController < Backend::ApplicationController
 
   def destroy
     @category = Category.find params[:id]
-    @category.delete
+    @category.destroy
     redirect_to categories_path, flash: { success: "刪除成功" }
   end
 
