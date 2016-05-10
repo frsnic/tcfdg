@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     resources :posts
     resources :categories
+    resources :tags
 
     mount Resque::Server.new, :at => "resque"
   end

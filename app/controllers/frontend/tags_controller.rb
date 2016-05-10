@@ -1,7 +1,7 @@
 class Frontend::TagsController < Frontend::ApplicationController
 
   def index
-    @tags = Tag.includes(:posts)
+    @tags = Tag.includes(:posts).page params[:page]
   end
 
   def show

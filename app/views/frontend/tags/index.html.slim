@@ -1,7 +1,7 @@
 - title "全部標籤"
 .container-fluid.bottom-buffer
   .row
-    .col-md-12.col-xs-12
+    .col-md-12
       header.entry-header.bottom-buffer
         h2 全部標籤
       .row
@@ -12,3 +12,6 @@
                   h4
                     = link_to tag.name, "/tags/#{tag.name}", style: "margin-right: 10px;"
                     = "(#{tag.posts.count})"
+
+    .col-md-12.text-center
+      = paginate @tags

@@ -2,8 +2,19 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <%= nav_link "控制台", dashboard_path, icon: "glyphicon glyphicon-dashboard" %>
+        <span class="glyphicon glyphicon-dashboard"></span>控制台
       </h4>
+    </div>
+    <div class="panel-collapse collapse in">
+      <div class="panel-body">
+        <table class="table">
+          <tr>
+            <td>
+              <%= nav_link "首頁", dashboard_path, icon: "glyphicon glyphicon-home" %>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -11,15 +22,15 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <%= nav_link "文章", "javascript:void(0)", icon: "glyphicon glyphicon-pushpin", data: { toggle: "collapse", parent: "#accordion" } %>
+        <span class="glyphicon glyphicon-pushpin"></span>文章
       </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
+    <div class="panel-collapse collapse in">
       <div class="panel-body">
         <table class="table">
           <tr>
             <td>
-              <%= nav_link "全部文章", posts_path, icon: "glyphicon glyphicon-file" %>
+              <%= nav_link "文章列表", posts_path, icon: "glyphicon glyphicon-file" %>
             </td>
           </tr>
           <tr>
@@ -30,6 +41,11 @@
           <tr>
             <td>
               <%= nav_link "分類", categories_path, icon: "glyphicon glyphicon-folder-close", data: { no_turbolink: true } %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= nav_link "標籤", tags_path, icon: "glyphicon glyphicon-tags", data: { no_turbolink: true } %>
             </td>
           </tr>
           <tr>

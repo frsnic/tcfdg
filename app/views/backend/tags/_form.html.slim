@@ -1,0 +1,7 @@
+= simple_form_for tag, html: { id: "tag_form" }, url: tag do |f|
+  = f.error_notification
+  = f.input :name, label: '標題'
+  .row
+    .col-md-12
+      .form-group
+        = f.button :submit, "新增", class: "btn btn-primary top-buffer pull-right"

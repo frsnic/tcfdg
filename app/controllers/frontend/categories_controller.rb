@@ -1,7 +1,7 @@
 class Frontend::CategoriesController < Frontend::ApplicationController
 
   def index
-    @categories = Category.includes(:posts)
+    @categories = Category.includes(:posts).page params[:page]
   end
 
   def show

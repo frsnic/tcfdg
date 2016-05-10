@@ -7,6 +7,7 @@ class Backend::CategoriesController < Backend::ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @recent_posts = @category.posts.page params[:page]
   end
 
   def new
