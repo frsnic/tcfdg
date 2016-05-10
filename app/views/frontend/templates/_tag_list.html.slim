@@ -1,7 +1,7 @@
 aside.bottom-buffer
   h4 標籤
   .entry-content
-    - tag_count = PostTag.group(:tag_id).count
-    - search_tag_ids = tag_count.sort_by { |k, v| v }.reverse[0..30].map { |e| e[0] }
+    - tag_count = PostTag.group(:tag_id).limit(20).order("count(tag_id) desc").count
+    - search_tag_ids = tag_count.keys
     - Tag.where(id: search_tag_ids).select(:id, :name).find_each do |tag|
       = link_to tag.name, "/tags/#{tag.name}", title: "#{tag_count[tag.id]} 篇話題", style: search_tag_ids.index(tag.id) < 5 ? "font-size: 22pt;" : ""
