@@ -15,8 +15,7 @@ class Backend::TagsController < Backend::ApplicationController
   end
 
   def create
-    @tag = Tag.new(tag_params)
-    if @tag.save
+    if @tag = Tag.find_or_create_by(tag_params)
       respond_to do |format|
         format.html { redirect_to tags_path, flash: { success: "新增成功" } }
         format.json { render :json => @tag }
@@ -48,7 +47,7 @@ class Backend::TagsController < Backend::ApplicationController
   private
 
   def tag_params
-    params.require(:tag).permit(:name, :handle)
+    params.require(:tag).permit(:name)
   end
 
 end

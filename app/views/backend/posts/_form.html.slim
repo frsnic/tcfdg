@@ -15,7 +15,12 @@
         .panel-heading 標籤
         .panel-body
           .col-md-12.bottom-buffer.top-buffer
-            = f.association :tags, as: :text, label: false
+            = content_tag :div, post.tags.pluck(:name).join(", "), id: "post_tag_names"
+            .hide
+              = f.association :tags, as: :check_boxes, label: false
+              script
+                | tag_hash =
+                = raw post.tags.inject({}) { |h, e| h[e.name] = e.id; h }.to_json
     .col-md-4
       .panel.panel-default
         .panel-heading 狀態
@@ -29,6 +34,7 @@
       .form-group
         = f.button :submit, "發表文章", id: "new_comment_submit", class: "btn btn-primary top-buffer"
 
+/ Category.new
 .modal.fade role="dialog" tabindex="-1" id="new-category"
   .modal-dialog
     .modal-content
@@ -38,9 +44,18 @@
         h4.modal-title 請輸入預新增的分類名稱
       .modal-body
         = render "backend/categories/form", category: Category.new
+/ Tag.new
+.hide
+  = render "backend/tags/form", tag: Tag.new
 
 script#new-category-item type="text/x-handlebars-template"
   span.checkbox
     label for="post_category_ids_{{id}}"
-      input#post_category_ids_47.check_boxes.optional name="post[category_ids][]" type="checkbox" value="{{id}}" checked="true"
+      input.check_boxes.optional id="post_category_ids_{{id}}" name="post[category_ids][]" type="checkbox" value="{{id}}" checked="true"
+      | {{name}}
+
+script#new-tag-item type="text/x-handlebars-template"
+  span.checkbox
+    label for="post_tag_ids_{{id}}"
+      input.check_boxes.optional id="post_tag_ids_{{id}}" name="post[tag_ids][]" type="checkbox" value="{{id}}" checked="true"
       | {{name}}

@@ -1,7 +1,7 @@
-#= require_directory ./backend
 #= require ckeditor/init
 #= require jquery.blockUI/jquery.blockUI.min
 #= require jquery.noty/jquery.noty.packaged.min
+#= require jquery.tagsinput/jquery.tagsinput.js
 
 window.msg = (text, delay = null) ->
   noty( { text: text, layout:'bottomRight', type:'success', timeout: 3000 } );
