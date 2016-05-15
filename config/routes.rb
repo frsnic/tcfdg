@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   scope "/admin", module: :backend do
     get '/', to: 'dashboard#index', as: :dashboard
 
-    resources :posts
+    resources :posts do
+      collection do
+        post :preview
+      end
+    end
     resources :categories
     resources :tags
 
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
     end
 
     post '/:post_id/comment',  to: 'comments#create', as: :post_comments
+    get '/posts/:id/preview',  to: 'posts#preview'
     get  '/categories',        to: 'categories#index'
     get  '/tags',              to: 'tags#index'
     get  '/tags/:name',        to: 'tags#show'

@@ -34,6 +34,8 @@ class Post < ActiveRecord::Base
 
   scope :wpcf7_contact_form, -> { where(post_type: 'wpcf7_contact_form') }
 
+  scope :preview, -> { where(post_type: 'preview') }
+
   scope :publish, -> { where(status: "publish") }
 
   # additional config .........................................................

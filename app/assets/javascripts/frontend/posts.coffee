@@ -7,7 +7,7 @@ $(document).on 'ready page:load', () ->
     $("#new_comment_submit").attr("disabled", true)
     $.ajax
       url: $("#new_comment").attr("action"),
-      method: "POST",
+      type: "POST",
       data: $("#new_comment").serialize(),
       dataType: "json",
       success: (result) ->

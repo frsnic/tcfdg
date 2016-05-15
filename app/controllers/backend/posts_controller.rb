@@ -41,10 +41,19 @@ class Backend::PostsController < Backend::ApplicationController
     redirect_to posts_path, flash: { success: "刪除成功" }
   end
 
+  def preview
+    @post = current_user.posts.create post_preview_params.merge(post_type: :preview)
+    render json: @post
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:title, :content, :status, :posted_at, category_ids: [], tag_ids: [])
+  end
+
+  def post_preview_params
+    params.require(:post).permit(:title, :content, :posted_at, :status)
   end
 
 end

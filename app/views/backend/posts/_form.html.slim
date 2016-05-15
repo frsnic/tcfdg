@@ -1,4 +1,4 @@
-= simple_form_for post, url: post do |f|
+= simple_form_for post, html: { id: "post_form" }, url: post do |f|
   = f.error_notification
   = f.input :title, label: false, placeholder: '標題'
   = f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, label: false
@@ -9,7 +9,7 @@
         .panel-body
           .col-md-12.bottom-buffer
             = f.association :categories, as: :check_boxes, label: false
-            = button_tag "新增分類", id: "new_category_btn", type: "button", data: { toggle: "modal", target: "#new-category" }
+            = button_tag "新增分類", id: "new_category_btn", class: "btn btn-default", type: "button", data: { toggle: "modal", target: "#new-category" }
     .col-md-4
       .panel.panel-default
         .panel-heading 標籤
@@ -32,7 +32,8 @@
       = f.input :posted_at, label: "發表時間"
     .col-md-4
       .form-group
-        = f.button :submit, "發表文章", id: "new_comment_submit", class: "btn btn-primary top-buffer"
+        = f.button :submit, "儲存文章", id: "new_comment_submit", class: "btn btn-primary top-buffer margin-right-10"
+        = button_tag "預覽文章", id: "preview_btn", type: "button", class: "btn btn-default top-buffer"
 
 / Category.new
 .modal.fade role="dialog" tabindex="-1" id="new-category"

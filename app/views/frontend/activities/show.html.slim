@@ -7,7 +7,7 @@
           = @activity.name
       .row
         .col-md-12
-          ul style="text-align: left;"
+          ul
             li
               | 時間：
               = @activity.start_at.strftime("%Y-%m-%d %H:%M").sub(" 00:00", "")

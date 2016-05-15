@@ -10,7 +10,7 @@
             - @tags.each do |tag|
                 li
                   h4
-                    = link_to tag.name, "/tags/#{tag.name}", style: "margin-right: 10px;"
+                    = link_to tag.name, "/tags/#{tag.name}", class: "margin-right-10"
                     = "(#{tag.posts.count})"
 
     .col-md-12.text-center

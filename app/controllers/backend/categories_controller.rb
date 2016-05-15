@@ -19,7 +19,7 @@ class Backend::CategoriesController < Backend::ApplicationController
     if @category.save
       respond_to do |format|
         format.html { redirect_to categories_path, flash: { success: "新增成功" } }
-        format.json { render :json => @category }
+        format.json { render json: @category }
       end
     else
       render :new

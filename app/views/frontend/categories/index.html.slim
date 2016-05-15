@@ -10,7 +10,7 @@
             - @categories.each do |category|
                 li
                   h4
-                    = link_to category.name, frontend_category_path(category.handle), style: "margin-right: 10px;"
+                    = link_to category.name, frontend_category_path(category.handle), class: "margin-right-10"
                     = "(#{category.posts.count})"
 
     .col-md-12.text-center

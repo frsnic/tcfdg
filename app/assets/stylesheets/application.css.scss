@@ -19,7 +19,19 @@
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('/assets/glyphicons-halflings-regular.eot');
-  src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format("embedded-opentype"), url('/assets/glyphicons-halflings-regular.woff') format("woff"), url('/assets/glyphicons-halflings-regular.ttf') format("truetype"), url('/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format("svg");
+}
+
+
+
+h3, h4 {
+  small {
+    margin-left: 10px;
+  }
+}
+
+tbody tr td.action a {
+  margin: 0 5px;
 }
 
 .top-buffer {
@@ -38,12 +50,16 @@
   padding-bottom: 20px;
 }
 
-.text-error {
-  color: #b94a48;
+.margin-left-10 {
+  margin-left: 10px;
 }
 
-tbody tr td.action a {
-  margin: 0 5px;
+.margin-right-10 {
+  margin-right: 10px;
+}
+
+.text-error {
+  color: #b94a48;
 }
 
 .one-line-solgan {
@@ -53,3 +69,4 @@ tbody tr td.action a {
   display: inherit;
   word-break: break-word;
 }
+
