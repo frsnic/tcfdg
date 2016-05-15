@@ -4,7 +4,7 @@ class Frontend::CommentsController < Frontend::ApplicationController
     errors = %w(驗證碼錯誤) unless check_grecaptcha(params['g-recaptcha-response'])
 
     @post = Post.find params[:post_id]
-    @comment = @post.comments.build(comment_params)
+    @comment = @post.comments.build comment_params
     if errors.blank? && @comment.save
       render json: { url: frontend_post_path(@post.id, @post.handle) + "#comment-#{@comment.id}" }
     else

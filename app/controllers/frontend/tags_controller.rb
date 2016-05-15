@@ -5,7 +5,7 @@ class Frontend::TagsController < Frontend::ApplicationController
   end
 
   def show
-    @tag = Tag.includes(:posts).find_by_name(params[:name])
+    @tag = Tag.includes(:posts).find_by_name params[:name]
     @recent_posts = @tag.posts.page params[:page]
   end
 

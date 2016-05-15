@@ -6,7 +6,7 @@ class Backend::TagsController < Backend::ApplicationController
   end
 
   def show
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find params[:id]
     @recent_posts = @tag.posts.page params[:page]
   end
 
@@ -15,7 +15,7 @@ class Backend::TagsController < Backend::ApplicationController
   end
 
   def create
-    if @tag = Tag.find_or_create_by(tag_params)
+    if @tag = Tag.find_or_create_by tag_params
       respond_to do |format|
         format.html { redirect_to tags_path, flash: { success: "新增成功" } }
         format.json { render :json => @tag }
@@ -26,12 +26,12 @@ class Backend::TagsController < Backend::ApplicationController
   end
 
   def edit
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find params[:id]
   end
 
   def update
-    @tag = Tag.find(params[:id])
-    if @tag.update(tag_params)
+    @tag = Tag.find params[:id]
+    if @tag.update tag_params
       redirect_to tags_path, flash: { success: "修改成功" }
     else
       render :edit

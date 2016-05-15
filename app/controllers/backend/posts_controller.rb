@@ -5,7 +5,7 @@ class Backend::PostsController < Backend::ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find params[:id]
   end
 
   def new
@@ -13,7 +13,7 @@ class Backend::PostsController < Backend::ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params.merge(post_type: :post))
+    @post = current_user.posts.new post_params.merge(post_type: :post)
 
     if @post.save
       redirect_to posts_path, flash: { success: "新增成功" }
@@ -23,12 +23,12 @@ class Backend::PostsController < Backend::ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find params[:id]
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.update(post_params)
+    @post = Post.find params[:id]
+    if @post.update post_params
       redirect_to posts_path, flash: { success: "修改成功" }
     else
       render :edit

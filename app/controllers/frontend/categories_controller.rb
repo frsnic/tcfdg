@@ -5,7 +5,7 @@ class Frontend::CategoriesController < Frontend::ApplicationController
   end
 
   def show
-    @category = Category.find_by_handle(params[:handle])
+    @category = Category.find_by_handle params[:handle]
     @recent_posts = @category.posts.page params[:page]
   end
 

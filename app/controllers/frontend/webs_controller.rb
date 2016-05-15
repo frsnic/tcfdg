@@ -12,7 +12,7 @@ class Frontend::WebsController < Frontend::ApplicationController
   end
 
   def date
-    @begin_day = Date.new(params[:year].to_i, params[:month].to_i, 1)
+    @begin_day = Date.new params[:year].to_i, params[:month].to_i, 1
     @recent_posts = Post.post.publish.where(posted_at: @begin_day..@begin_day + 1.month).page params[:page]
   end
 
