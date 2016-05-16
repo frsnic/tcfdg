@@ -27,7 +27,7 @@
         <li>
           <%= link_to "關於田調團", about_us_path %>
         </li>
-        <% Category.where(id: [10, 17, 38]).select(:id, :name, :handle).find_each do |category| %>
+        <% Category.where(id: [10, 17, 38]).select([:id, :name, :handle]).find_each do |category| %>
           <li>
             <%= link_to category.name, "/#{category.handle}" %>
           </li>
