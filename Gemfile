@@ -72,3 +72,7 @@ gem 'ckeditor'
 gem 'dragonfly'
 
 gem 'default_value_for'
+
+gem 'chinese_pinyin'
+
+gem 'squeel'

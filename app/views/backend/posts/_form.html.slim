@@ -1,6 +1,10 @@
 = simple_form_for post, html: { id: "post_form" }, url: post do |f|
   = f.error_notification
-  = f.input :title, label: false, placeholder: '標題'
+  .row
+    .col-md-6
+      = f.input :title, label: false, placeholder: '標題'
+    .col-md-6
+      = f.input :handle, label: false, placeholder: '網址'
   = f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, label: false
   .row
     .col-md-4
