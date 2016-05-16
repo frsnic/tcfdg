@@ -15,7 +15,7 @@ class Backend::TagsController < Backend::ApplicationController
   end
 
   def create
-    if @tag = Tag.find_or_create_by tag_params
+    if @tag = Tag.find_or_create_by(tag_params)
       respond_to do |format|
         format.html { redirect_to tags_path, flash: { success: "新增成功" } }
         format.json { render :json => @tag }

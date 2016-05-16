@@ -18,10 +18,10 @@ $(document).on "ready page:load", () ->
         $("#new-category").modal("hide")
         template = Handlebars.compile $("#new-category-item").html()
         $(".post_categories").prepend template result
-        $("#new_category_btn").attr("disabled", false)
         msg("新增成功")
       error: (result) ->
         error_msg("新增失敗")
+      complete: ->
         $("#new_category_btn").attr("disabled", false)
 
   # tag
@@ -49,14 +49,18 @@ $(document).on "ready page:load", () ->
     })
     $("#post_tag_names").importTags(tags)
 
+  # preview
   $("#preview_btn").click (e) ->
+    $("#preview_btn").attr("disabled", true)
     for instance of CKEDITOR.instances
       CKEDITOR.instances[instance].updateElement()
     $.ajax
-      url: "/admin/posts/preview",
+      url: "/admin/previews",
       type: "POST",
       data: $("#post_form").serialize().replace(/_method=patch&/g, "_method=post"),
       success: (result) ->
-        window.open("/posts/#{result.id}/preview")
+        window.open("/preview/#{result.token}")
       error: (result) ->
         error_msg("預覽失敗")
+      complete: ->
+        $("#preview_btn").attr("disabled", false)

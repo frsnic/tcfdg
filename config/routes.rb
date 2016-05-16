@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         post :preview
       end
     end
+    resources :previews, :only => [:create]
     resources :categories
     resources :tags
 
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
     end
 
     post '/:post_id/comment',  to: 'comments#create', as: :post_comments
-    get '/posts/:id/preview',  to: 'posts#preview'
+    get  '/preview/:token',    to: 'previews#show'
     get  '/categories',        to: 'categories#index'
     get  '/tags',              to: 'tags#index'
     get  '/tags/:name',        to: 'tags#show'

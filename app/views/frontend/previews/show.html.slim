@@ -1,0 +1,22 @@
+- title @post.title
+.container-fluid.bottom-buffer
+  .row
+    .col-md-9.col-xs-12
+      header.entry-header
+        h2
+          = @post.title
+      .row.bottom-buffer
+        .col-md-12
+          .postmeta
+            h4
+              = "#{@post.posted_at.strftime("%Y-%m-%d")} | "
+              | 無迴響
+          .entry-content
+            = @post.content.html_safe
+      hr
+
+    #sidebar.col-md-3.col-xs-12
+      = render 'frontend/templates/time_list'
+      = render 'frontend/templates/tag_list'
+      = render 'frontend/templates/recent_posts'
+      = render 'frontend/templates/recent_comments'

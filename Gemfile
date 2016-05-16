@@ -70,3 +70,5 @@ gem 'devise'
 gem 'ckeditor'
 
 gem 'dragonfly'
+
+gem 'default_value_for'
