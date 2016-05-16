@@ -74,3 +74,5 @@ gem 'dragonfly'
 gem 'chinese_pinyin'
 
 gem 'squeel'
+
+gem 'meta-tags'

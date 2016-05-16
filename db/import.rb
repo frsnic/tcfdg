@@ -87,6 +87,20 @@ WPDB::Post.find_each do |wp_post|
   end
 end
 
+WPDB::Postmeta.find_each do |wp_postmeta|
+  post = Post.find_by_id(wp_postmeta.post_id)
+  if post && post.post? && post.publish?
+    post_meta = post.post_meta || post.build_post_meta
+    case wp_postmeta.meta_key
+    when '_yoast_wpseo_metadesc'
+      post_meta.keywords = wp_postmeta.meta_value
+    when '_yoast_wpseo_focuskw'
+      post_meta.description = wp_postmeta.meta_value
+    end
+    post_meta.save
+  end
+end
+
 WPDB::Activity.find_each do |activity|
   Activity.create(
     id: activity.id,

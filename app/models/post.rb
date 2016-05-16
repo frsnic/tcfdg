@@ -17,6 +17,8 @@ class Post < ActiveRecord::Base
 
   has_many :comments
 
+  has_one :post_meta
+
   # validations ...............................................................
   validates_presence_of :title, :content
 
@@ -50,7 +52,6 @@ class Post < ActiveRecord::Base
   paginates_per 10
 
   # class methods .............................................................
-  # public instance methods ...................................................
   def post?
     post_type == "post"
   end
@@ -58,5 +59,7 @@ class Post < ActiveRecord::Base
   def publish?
     status == "publish"
   end
+
+  # public instance methods ...................................................
 
 end
