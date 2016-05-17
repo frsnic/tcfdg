@@ -26,7 +26,8 @@ class Post < ActiveRecord::Base
 
   # callbacks .................................................................
   before_save do
-    self.handle_valid(Post)
+    self.handle_valid(Post) if self.handle.blank?
+    image_responsive
   end
 
   # scopes ....................................................................
@@ -60,6 +61,15 @@ class Post < ActiveRecord::Base
 
   def publish?
     status == "publish"
+  end
+
+  def image_responsive
+    doc = Nokogiri::HTML self.content
+    doc.xpath("//img").each do |img|
+      image_tag = %Q(<img src="#{img['src']}", class="img-responsive">)
+      img.replace(image_tag)
+    end
+    self.content = doc.to_html
   end
 
   # public instance methods ...................................................

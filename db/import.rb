@@ -1,10 +1,10 @@
 WPDB::Post.find_each do |post|
   Post.create(
     id: post.id,
-    author_id: post.post_author,
+    user_id: post.post_author,
     category_id: post.menu_order,
     posted_at: post.post_date,
-    content: content(post.post_content),
+    content: CGI::unescapeHTML(post.post_content),
     title: post.post_title,
     excerpt: post.post_excerpt,
     status: post.post_status,
@@ -33,9 +33,7 @@ end
 WPDB::TermRelationship.find_each do |post_tag|
   PostTag.create(
     post_id: post_tag.object_id,
-    tag_id: post_tag.term_taxonomy_id,
-    created_at: Time.now,
-    updated_at: Time.now
+    tag_id: post_tag.term_taxonomy_id
   )
 end
 
@@ -87,6 +85,9 @@ WPDB::Post.find_each do |wp_post|
   end
 end
 
+Post.post.each do |post|
+  post.build_post_meta.save unless post.post_meta
+end
 WPDB::Postmeta.find_each do |wp_postmeta|
   post = Post.find_by_id(wp_postmeta.post_id)
   if post && post.post? && post.publish?
