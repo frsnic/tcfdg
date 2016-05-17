@@ -41,6 +41,9 @@ $(document).on "ready page:load", () ->
             msg("新增成功")
             template = Handlebars.compile $("#new-tag-item").html()
             $(".post_tags").prepend template result
+            arr = $("#post_post_meta_attributes_keywords").val().split(/, */).filter (n) -> n != ""
+            arr.push(tag)
+            $("#post_post_meta_attributes_keywords").val( arr.join(", ") )
           error: (result) ->
             error_msg("新增失敗")
       onRemoveTag: (tag) ->
