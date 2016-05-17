@@ -15,9 +15,11 @@ class Post < ActiveRecord::Base
 
   has_many :categories, through: :category_posts
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
-  has_one :post_meta
+  has_one :post_meta, dependent: :destroy
+
+  accepts_nested_attributes_for :post_meta
 
   # validations ...............................................................
   validates_presence_of :title, :content

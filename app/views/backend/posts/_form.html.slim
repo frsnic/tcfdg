@@ -30,7 +30,16 @@
         .panel-heading 狀態
         .panel-body
           .col-md-12.bottom-buffer.top-buffer
-            = f.input :status, collection: [["公開", :puslish], ["草稿", :draft]], selected: :publish, label: false
+            = f.input :status, collection: KeyValues::Post::Status.options, selected: post.status ? post.status : :publish, label: false
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-heading SEO
+        .panel-body
+          .col-md-12.bottom-buffer.top-buffer
+            = f.simple_fields_for :post_meta do |p|
+              = p.input :keywords, label: "關鍵字"
+              = p.input :description, as: :text, label: "描述"
   .row
     .col-md-8
       = f.input :posted_at, label: "發表時間"
@@ -49,6 +58,7 @@
         h4.modal-title 請輸入預新增的分類名稱
       .modal-body
         = render "backend/categories/form", category: Category.new
+
 / Tag.new
 .hide
   = render "backend/tags/form", tag: Tag.new

@@ -15,7 +15,7 @@
         - @posts.each do |post|
           tr
             td
-              = link_to post.title, edit_post_path(post), data: { no_turbolink: true }, class: "one-line-solgan", style: "max-width: 400px;"
+              = link_to post.title, edit_post_path(post), data: { no_turbolink: true }, class: "one-line-solgan", style: "max-width: 300px;"
             td
               = post.user.try(:name)
             td
@@ -25,6 +25,7 @@
             td
               = post.created_at.strftime("%Y-%m-%d %M:%H")
             td.action
+              = link_to "Show", frontend_post_path(post.id, post.handle), target: "_blank"
               = link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" }
 
   .col-md-12.text-center

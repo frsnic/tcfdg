@@ -10,6 +10,7 @@ class Backend::PostsController < Backend::ApplicationController
 
   def new
     @post = current_user.posts.new
+    @post.build_post_meta
   end
 
   def create
@@ -44,7 +45,8 @@ class Backend::PostsController < Backend::ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :handle, :status, :posted_at, category_ids: [], tag_ids: [])
+    params.require(:post).permit(:title, :content, :handle, :status, :posted_at, category_ids: [], tag_ids: [],
+                                 post_meta_attributes: [:keywords, :description])
   end
 
 end

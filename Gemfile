@@ -76,3 +76,5 @@ gem 'chinese_pinyin'
 gem 'squeel'
 
 gem 'meta-tags'
+
+gem 'active_hash'

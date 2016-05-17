@@ -1,5 +1,5 @@
 CKEDITOR.editorConfig = (config) ->
-  config.height = '400px';
+  config.height = '600px';
 
   # Filebrowser routes
   # The location of an external file browser, that should be launched when "Browse Server" button is pressed.

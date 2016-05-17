@@ -26,7 +26,14 @@ class Frontend::ApplicationController < ApplicationController
         image: image,
         description: description,
         type: options[:og_type] || 'website'
-      }
+      },
+      icon: [
+        { href: '/favicon.ico' },
+        { href: '/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' },
+      ],
+      alternate: [
+        { href: Setting.rss, type: 'application/rss+xml', title: 'RSS' },
+      ]
     }
 
     set_meta_tags hash

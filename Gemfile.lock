@@ -20,6 +20,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_hash (1.4.1)
+      activesupport (>= 2.2.2)
     activejob (4.2.6)
       activesupport (= 4.2.6)
       globalid (>= 0.3.0)
@@ -103,7 +105,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
     mini_portile2 (2.0.0)
-    minitest (5.8.4)
+    minitest (5.9.0)
     mono_logger (1.1.0)
     multi_json (1.12.0)
     mysql2 (0.3.21)
@@ -232,6 +234,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_hash
   awesome_print
   byebug
   chinese_pinyin
