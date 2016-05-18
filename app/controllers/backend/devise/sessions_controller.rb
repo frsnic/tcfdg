@@ -1,5 +1,4 @@
 class Backend::Devise::SessionsController < Devise::SessionsController
-  layout "backend_application"
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

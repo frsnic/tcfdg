@@ -2,13 +2,26 @@
 <html>
 <head>
   <title>Tcfdg</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'backend_application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'backend_application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body style="padding-top: 70px;">
 
-<%= yield %>
+<%= render 'layouts/backend/header' %>
+
+<div class="container">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+    <%= content_tag(:div, flash[:notice].html_safe,  class: "alert alert-info")    if flash[:notice].present? %>
+    <%= content_tag(:div, flash[:success].html_safe, class: "alert alert-success") if flash[:success].present? %>
+    <%= content_tag(:div, flash[:warning].html_safe, class: "alert alert-warning") if flash[:warning].present? %>
+    <%= content_tag(:div, flash[:error].html_safe,   class: "alert alert-danger")  if flash[:error].present? %>
+
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>
