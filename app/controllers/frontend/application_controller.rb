@@ -10,7 +10,7 @@ class Frontend::ApplicationController < ApplicationController
     title       = options[:title]
     description = options[:description] || Setting.description
     keywords    = "#{options[:keywords]}, #{Setting.keywords}".strip.split(/, */).reject { |e| e.empty? }
-    image       = options[:image] || "/assets/logo_text.gif"
+    image       = options[:image].present? ? "#{Setting.url}#{options[:image]}" : "#{Setting.url}/assets/logo_text.gif"
     current_url = request.url
 
     hash = {

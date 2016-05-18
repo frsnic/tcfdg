@@ -22,14 +22,14 @@
           - @activities.each do |activity|
             .col-md-12.tr
               .col-md-4.one-line-solgan
-                = activity.name
+                = link_to activity.name, activity_path(activity), data: { no_turbolink: true }
               .col-md-3
                 = activity.start_at.strftime("%Y-%m-%d %H:%M").sub(" 00:00", "")
               .col-md-3.one-line-solgan
                 = activity.location
               .col-md-2
                 - if activity.link
-                  = link_to "連結", activity_path(activity), target: "_blank"
+                  = link_to "連結", activity.link, target: "_blank"
       .row.text-center
         = paginate @activities
 

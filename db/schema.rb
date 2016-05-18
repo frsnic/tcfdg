@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516115049) do
+ActiveRecord::Schema.define(version: 20160518061205) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -78,6 +78,13 @@ ActiveRecord::Schema.define(version: 20160516115049) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "images", force: :cascade do |t|
+    t.integer  "post_id",    limit: 4
+    t.integer  "picture_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "news", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.string   "link",       limit: 255
@@ -106,23 +113,24 @@ ActiveRecord::Schema.define(version: 20160516115049) do
   add_index "post_tags", ["tag_id"], name: "index_post_tags_on_tag_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "user_id",        limit: 4
-    t.integer  "category_id",    limit: 4
+    t.integer  "user_id",         limit: 4
+    t.integer  "category_id",     limit: 4
     t.datetime "posted_at"
-    t.text     "content",        limit: 65535
-    t.string   "title",          limit: 255
-    t.string   "excerpt",        limit: 255
-    t.string   "status",         limit: 255
-    t.string   "comment_status", limit: 255
-    t.string   "ping_status",    limit: 255
-    t.string   "password",       limit: 255
-    t.string   "handle",         limit: 255
-    t.string   "post_type",      limit: 255
-    t.string   "mime_type",      limit: 255
-    t.integer  "comment_count",  limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.integer  "comments_count", limit: 4,     default: 0
+    t.text     "content",         limit: 65535
+    t.string   "title",           limit: 255
+    t.string   "excerpt",         limit: 255
+    t.string   "status",          limit: 255
+    t.string   "comment_status",  limit: 255
+    t.string   "ping_status",     limit: 255
+    t.string   "password",        limit: 255
+    t.string   "handle",          limit: 255
+    t.string   "post_type",       limit: 255
+    t.string   "mime_type",       limit: 255
+    t.integer  "comment_count",   limit: 4
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.integer  "comments_count",  limit: 4,     default: 0
+    t.integer  "main_picture_id", limit: 4
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree

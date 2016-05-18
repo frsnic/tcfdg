@@ -94,9 +94,9 @@ WPDB::Postmeta.find_each do |wp_postmeta|
     post_meta = post.post_meta || post.build_post_meta
     case wp_postmeta.meta_key
     when '_yoast_wpseo_metadesc'
-      post_meta.keywords = wp_postmeta.meta_value
-    when '_yoast_wpseo_focuskw'
       post_meta.description = wp_postmeta.meta_value
+    when '_yoast_wpseo_focuskw'
+      post_meta.keywords = wp_postmeta.meta_value
     end
     post_meta.save
   end

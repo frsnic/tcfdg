@@ -25,7 +25,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to "關於田調團", about_us_path %>
+          <%= link_to "關於田調團", about_us_path, data: { no_turbolink: true } %>
         </li>
         <% Category.where(id: [10, 17, 38]).select([:id, :name, :handle]).find_each do |category| %>
           <li>
@@ -39,7 +39,7 @@
           <%= link_to "相關新聞", news_path %>
         </li>
         <li>
-          <%= link_to "聯絡我們", contact_us_path %>
+          <%= link_to "聯絡我們", contact_us_path, data: { no_turbolink: true } %>
         </li>
       </ul>
     </div><!--/.nav-collapse -->

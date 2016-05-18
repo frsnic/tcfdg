@@ -60,6 +60,6 @@
               h3.one-line-solgan
                 = post.title
               p
-                = summary(post)
+                = post.summary
               = link_to "Read More ...", frontend_post_path(post.id, post.handle)
         .bottom-padding

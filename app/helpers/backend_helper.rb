@@ -1,4 +1,4 @@
-module Backend::DashboardHelper
+module BackendHelper
 
   def nav_link(text, path, options = {})
     icon_tag = options[:icon] ? content_tag(:span, "", class: options[:icon]) : ""

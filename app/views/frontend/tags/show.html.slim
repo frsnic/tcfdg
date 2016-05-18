@@ -5,16 +5,22 @@
       header.entry-header.bottom-buffer
         h2
           = "標籤：#{@tag.name}"
-      .row
+      #post-list.row
         - @recent_posts.each do |post|
           .col-md-12
             h3
               = link_to post.title, frontend_post_path(post.id, post.handle)
               small
                 = post.posted_at.strftime("%Y-%m-%d")
-            p
-              = truncate(strip_tags(post.content), length: 500)
-              = link_to "Continue Reading...", frontend_post_path(post.id, post.handle), class: "margin-left-10"
+            - if post.main_picture_id
+              .col-md-4
+                .row
+                  = image_tag post.main_picture_url, class: "img-responsive", alt: post.title
+              .col-md-8
+                = content_area(post)
+              div.clear
+            - else
+              = content_area(post)
             hr
 
       .row.text-center
