@@ -18,12 +18,12 @@ module Models
 
       def handle_valid(records) # make sure only one
         self.handle = self.title if self.handle.blank?
-        unique_handle = Models::Handle.handleize(self.handle)
+        handle = unique_handle = Models::Handle.handleize(self.handle)
         number = 1
-        condition = {}
-        condition[:id.not_eq] = self.id unless self.new_record?
-        while records.exists?(condition.merge(handle: unique_handle))
-          unique_handle = "#{unique_handle}-#{number}"
+        condition = ""
+        condition = "id != #{self.id}" unless self.new_record?
+        while records.where(condition).where(handle: unique_handle).any?
+          unique_handle = "#{handle}-#{number}"
           number += 1
         end
         self.handle = unique_handle

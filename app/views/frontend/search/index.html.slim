@@ -1,0 +1,27 @@
+- title keywords description "搜尋：#{params[:q]}"
+.container-fluid.bottom-buffer
+  .row
+    .col-md-12
+      header.entry-header.bottom-buffer
+        h2
+          = "搜尋：#{params[:q]}"
+      #post-list.row
+        - @posts.each do |post|
+          .col-md-12
+            h3
+              = link_to post.title, frontend_post_path(post.id, post.handle)
+              small
+                = post.posted_at.strftime("%Y-%m-%d")
+            - if post.main_picture_id
+              .col-md-4
+                .row
+                  = image_tag post.main_picture_url, class: "img-responsive", alt: post.title
+              .col-md-8
+                = content_area(post)
+              div.clear
+            - else
+              = content_area(post)
+            hr
+
+      .row.text-center
+        = paginate @posts

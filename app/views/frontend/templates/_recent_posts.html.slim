@@ -1,6 +1,6 @@
 aside.bottom-buffer
   h4 近期文章
-  - recent_posts = Post.post.publish.limit(5).select([:id, :handle, :title])
+  - recent_posts = Post.post.publish.limit(5).select(:id, :handle, :title)
   ul.list-unstyled
     - recent_posts.each do |post|
       li

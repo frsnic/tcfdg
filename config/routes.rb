@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     get  '/activities/:id',    to: 'activities#show', as: :activity
     get  '/news',              to: 'news#index'
     get  '/date/:year/:month', to: 'webs#date'
+    get  '/search',            to: 'search#index',    as: :search
     get  '/:id/:handle',       to: 'posts#show',      as: :frontend_post
     get  '/:handle',           to: 'categories#show', as: :frontend_category
   end
