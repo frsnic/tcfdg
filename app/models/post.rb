@@ -27,7 +27,7 @@ class Post < ActiveRecord::Base
   # callbacks .................................................................
   before_save do
     self.handle_valid(Post) if self.handle.blank?
-    image_responsive
+    # image_responsive
   end
 
   # scopes ....................................................................

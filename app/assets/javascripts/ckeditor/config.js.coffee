@@ -25,6 +25,9 @@ CKEDITOR.editorConfig = (config) ->
 
   config.allowedContent = true;
 
+  # extra Plugins
+  config.extraPlugins = 'lineutils,image2,widget';
+
   # Toolbar groups configuration.
   config.toolbar = [
     { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source'] },
