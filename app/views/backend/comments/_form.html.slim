@@ -1,0 +1,10 @@
+= simple_form_for comment, html: { id: "comment_form" }, url: comment do |f|
+  = f.error_notification
+  = f.input :name, label: '名稱'
+  = f.input :email, label: '電子郵件'
+  = f.input :url, label: '個人網站'
+  = f.input :content, as: :text, label: '迴響', input_html: { rows: 5 }
+  .row
+    .col-md-12
+      .form-group
+        = f.button :submit, "儲存", class: "btn btn-primary top-buffer pull-right"

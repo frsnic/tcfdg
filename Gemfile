@@ -57,7 +57,7 @@ gem 'simple_form'
 
 gem 'kaminari'
 
-gem "wpdb_activerecord"
+gem "wpdb_activerecord", '= 1.02'
 
 gem 'handlebars_assets'
 

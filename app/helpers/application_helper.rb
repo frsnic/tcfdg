@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def comment_path(comment)
+  def frontend_comment_path(comment)
     "/#{comment.post.id}/#{comment.post.handle}#comment-#{comment.id}"
   end
 

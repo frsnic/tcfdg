@@ -20,9 +20,10 @@ Rails.application.routes.draw do
         post :preview
       end
     end
-    resources :previews, :only => [:create]
+    resources :previews, only: [:create]
     resources :categories
     resources :tags
+    resources :comments, except: [:show, :new, :create]
 
     mount Resque::Server.new, :at => "resque"
   end

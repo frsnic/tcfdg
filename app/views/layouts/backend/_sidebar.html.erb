@@ -48,11 +48,23 @@
               <%= nav_link "標籤", tags_path, icon: "glyphicon glyphicon-tags", data: { no_turbolink: true } %>
             </td>
           </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <span class="glyphicon glyphicon-comment"></span>迴響
+      </h4>
+    </div>
+    <div class="panel-collapse collapse in">
+      <div class="panel-body">
+        <table class="table">
           <tr>
             <td>
-              <span class="glyphicon glyphicon-comment text-primary"></span>
-              <a href="http://www.jquery2dotnet.com">Comments</a>
-              <span class="badge">42</span>
+              <%= nav_link "列表", comments_path, icon: "glyphicon glyphicon-tasks" %>
             </td>
           </tr>
         </table>
