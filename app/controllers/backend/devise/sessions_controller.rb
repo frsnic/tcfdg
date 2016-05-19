@@ -1,4 +1,5 @@
 class Backend::Devise::SessionsController < Devise::SessionsController
+  prepend_before_action :check_grecaptcha, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -22,4 +23,16 @@ class Backend::Devise::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  private
+
+  def check_grecaptcha
+    if Recaptcha.check_recaptcha(params['g-recaptcha-response'])
+      true
+    else
+      self.resource = resource_class.new sign_in_params
+      respond_with_navigational(resource) { render :new }
+    end
+  end
+
 end

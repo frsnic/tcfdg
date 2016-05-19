@@ -9,16 +9,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def check_grecaptcha(response)
-    return false if params['g-recaptcha-response'].blank?
-
-    uri = URI("https://www.google.com/recaptcha/api/siteverify")
-    https = Net::HTTP.new(uri.host, uri.port)
-    https.use_ssl = true
-    request = Net::HTTP::Post.new(uri.path)
-    request.set_form_data(secret: Setting.recaptcha.secret_key, response: response)
-    response = https.request(request)
-    return JSON.parse(response.body)["success"] == true
+  def check_grecaptcha
+    return Recaptcha.check_recaptcha(params['g-recaptcha-response'])
   end
 
 end

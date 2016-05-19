@@ -1,7 +1,7 @@
 class Frontend::CommentsController < Frontend::ApplicationController
 
   def create
-    errors = %w(驗證碼錯誤) unless check_grecaptcha(params['g-recaptcha-response'])
+    errors = %w(驗證碼錯誤) unless check_grecaptcha
 
     @post = Post.find params[:post_id]
     @comment = @post.comments.build comment_params
