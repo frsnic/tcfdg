@@ -15,4 +15,7 @@ class Preview < ActiveRecord::Base
     self.token ||= SecureRandom.uuid
   end
 
+  # protected instance methods ................................................
+  # private instance methods ..................................................
+
 end

@@ -15,4 +15,7 @@ class Image < ActiveRecord::Base
     Ckeditor::Picture.find self.picture_id
   end
 
+  # protected instance methods ................................................
+  # private instance methods ..................................................
+
 end

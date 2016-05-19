@@ -80,3 +80,5 @@ gem 'active_hash'
 gem 'nokogiri'
 
 gem 'ransack'
+
+gem 'cancancan', '~> 1.10'

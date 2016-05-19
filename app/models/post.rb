@@ -109,4 +109,7 @@ class Post < ActiveRecord::Base
     self.excerpt.truncate(length)
   end
 
+  # protected instance methods ................................................
+  # private instance methods ..................................................
+
 end
