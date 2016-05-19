@@ -48,6 +48,11 @@
               <%= nav_link "標籤", tags_path, icon: "glyphicon glyphicon-tags", data: { no_turbolink: true } %>
             </td>
           </tr>
+          <tr>
+            <td>
+              <%= nav_link "迴響", comments_path, icon: "glyphicon glyphicon-comment" %>
+            </td>
+          </tr>
         </table>
       </div>
     </div>
@@ -56,7 +61,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <span class="glyphicon glyphicon-comment"></span>迴響
+        <span class="glyphicon glyphicon-flag"></span>其他
       </h4>
     </div>
     <div class="panel-collapse collapse in">
@@ -64,7 +69,7 @@
         <table class="table">
           <tr>
             <td>
-              <%= nav_link "迴響列表", comments_path, icon: "glyphicon glyphicon-list-alt" %>
+              <%= nav_link "活動資訊", activities_path, icon: "glyphicon glyphicon-plane" %>
             </td>
           </tr>
         </table>

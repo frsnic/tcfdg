@@ -15,15 +15,13 @@ Rails.application.routes.draw do
   scope "/admin", module: :backend do
     get '/', to: 'dashboard#index', as: :dashboard
 
-    resources :posts do
-      collection do
-        post :preview
-      end
-    end
+    resources :posts
     resources :previews, only: [:create]
     resources :categories
     resources :tags
     resources :comments, except: [:show, :new, :create]
+    resources :activities
+    resources :news
 
     mount Resque::Server.new, :at => "resque"
   end
@@ -43,8 +41,8 @@ Rails.application.routes.draw do
     get  '/tags',              to: 'tags#index'
     get  '/tags/:name',        to: 'tags#show'
     get  '/activities',        to: 'activities#index'
-    get  '/activities/:id',    to: 'activities#show', as: :activity
-    get  '/news',              to: 'news#index'
+    get  '/activities/:id',    to: 'activities#show', as: :frontend_activity
+    get  '/news',              to: 'news#index',      as: :frontend_news
     get  '/date/:year/:month', to: 'webs#date'
     get  '/search',            to: 'search#index',    as: :search
     get  '/:id/:handle',       to: 'posts#show',      as: :frontend_post

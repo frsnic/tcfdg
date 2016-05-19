@@ -1,0 +1,11 @@
+= simple_form_for activity, html: { id: "activity_form" }, url: activity do |f|
+  = f.error_notification
+  = f.input :name, label: '活動'
+  = f.input :location, label: '地點'
+  = f.input :start_at, label: '時間'
+  = f.input :link, label: '參考連結'
+  = f.input :is_public, collection: [['公開', true], ['不公開', false]], selected: activity.is_public, label: '類型'
+  .row
+    .col-md-12
+      .form-group
+        = f.button :submit, "儲存", class: "btn btn-primary top-buffer pull-right"

@@ -22,7 +22,7 @@
           - @activities.each do |activity|
             .col-md-12.tr
               .col-md-4.one-line-solgan
-                = link_to activity.name, activity_path(activity), data: { no_turbolink: true }
+                = link_to activity.name, frontend_activity_path(activity), data: { no_turbolink: true }
               .col-md-3
                 = activity.start_at.strftime("%Y-%m-%d %H:%M").sub(" 00:00", "")
               .col-md-3.one-line-solgan

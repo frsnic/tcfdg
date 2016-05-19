@@ -1,0 +1,28 @@
+.row
+  .col-md-12
+    h3 活動
+    hr
+  .col-md-12
+    = link_to "新增活動", new_activity_path, class: "btn btn-success bottom-buffer"
+    table.table.table-hover.table-striped
+      thead
+        tr
+          th 活動名稱
+          th 時間
+          th 地點
+          th
+      tbody
+        - @activities.each do |activity|
+          tr
+            td
+              = link_to activity.name, activity_path(activity), class: "one-line-solgan", style: "max-width: 300px;"
+            td
+              = activity.start_at.strftime("%Y-%m-%d %H:%M").sub(" 00:00", "")
+            td
+              = content_tag :span, activity.location, class: "one-line-solgan", style: "max-width: 200px;"
+            td.action
+              = link_to "Edit", edit_activity_path(activity)
+              = link_to "Delete", activity_path(activity), method: :delete, data: { confirm: "Are you sure?" }
+
+    .col-md-12.text-center
+      = paginate @activities

@@ -2,7 +2,6 @@ class Backend::CommentsController < Backend::ApplicationController
 
   def index
     @comments = Comment.page params[:page]
-    @comment = Comment.new
   end
 
   def edit

@@ -1,0 +1,22 @@
+.row.bottom-buffer
+  .col-md-12
+    h3
+      = @activity.name
+    hr
+  .col-md-12
+    ul
+      li
+        | 時間：
+        = @activity.start_at.strftime("%Y-%m-%d %H:%M").sub(" 00:00", "")
+      li
+        | 地點：
+        = @activity.location
+      li
+        | 類型：
+        = @activity.is_public ? "公開" : "不公開"
+      - if @activity.link.present?
+        li
+          = link_to "參考連結", @activity.link, target: "_blank"
+    hr
+    = link_to "Edit", edit_activity_path(@activity), class: "btn btn-primary margin-left-10"
+    = link_to "Delete", activity_path(@activity), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger margin-left-10"

@@ -39,7 +39,7 @@
                   - if @activity.link.present?
                     li
                       = link_to "參考連結", @activity.link, target: "_blank"
-                = link_to "Read More ...", activity_path(@activity)
+                = link_to "Read More ...", frontend_activity_path(@activity)
         .bottom-padding
       .col-md-4.col-xs-12
         .ehdiv
