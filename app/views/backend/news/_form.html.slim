@@ -1,0 +1,9 @@
+= simple_form_for news, html: { id: "news_form" }, url: news do |f|
+  = f.error_notification
+  = f.input :title, label: '新聞名稱'
+  = f.input :posted_at, label: '時間'
+  = f.input :link, label: '連結'
+  .row
+    .col-md-12
+      .form-group
+        = f.button :submit, "儲存", class: "btn btn-primary top-buffer pull-right"

@@ -7,6 +7,10 @@ class Activity < ActiveRecord::Base
   validates_presence_of :name, :start_at
 
   # callbacks .................................................................
+  before_save do
+    self.set_link if self.link.present? && !self.link.match(/^http/)
+  end
+
   # scopes ....................................................................
   default_scope { order('start_at DESC') }
 
@@ -17,6 +21,10 @@ class Activity < ActiveRecord::Base
 
   # class methods .............................................................
   # public instance methods ...................................................
+  def set_link
+    self.link = "http://#{self.link}"
+  end
+
   # protected instance methods ................................................
   # private instance methods ..................................................
 

@@ -16,12 +16,12 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index', as: :dashboard
 
     resources :posts
-    resources :previews, only: [:create]
+    resources :previews,   only: [:create]
     resources :categories
     resources :tags
-    resources :comments, except: [:show, :new, :create]
+    resources :comments,   except: [:show, :new, :create]
     resources :activities
-    resources :news
+    resources :news,       except: [:show]
 
     mount Resque::Server.new, :at => "resque"
   end

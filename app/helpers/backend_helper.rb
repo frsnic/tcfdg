@@ -18,10 +18,6 @@ module BackendHelper
     return false if params[:controller] != path[:controller]
 
     case path[:controller]
-    when 'backend/tags'
-      %w(index show new edit).include? params[:action]
-    when 'backend/categories'
-      %w(index show new edit).include? params[:action]
     when 'backend/posts'
       case path[:action]
       when 'index'
@@ -32,7 +28,7 @@ module BackendHelper
         false
       end
     else
-      false
+      params[:controller] == path[:controller]
     end
   end
 
