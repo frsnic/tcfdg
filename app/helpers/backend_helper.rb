@@ -27,6 +27,15 @@ module BackendHelper
       else
         false
       end
+    when 'backend/users'
+      case path[:action]
+      when 'index'
+        %w(index show edit).include? params[:action]
+      when 'new'
+        %w(new).include? params[:action]
+      else
+        false
+      end
     else
       params[:controller] == path[:controller]
     end

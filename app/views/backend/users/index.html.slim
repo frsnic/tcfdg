@@ -1,0 +1,32 @@
+.row
+  .col-md-12
+    h3 帳號
+    hr
+  .col-md-12
+    table.table.table-hover.table-striped
+      thead
+        tr
+          th 帳號
+          th 名稱
+          th 電子郵件
+          th 角色
+          th 文章
+          th
+      tbody
+        - @users.each do |user|
+          tr
+            td
+              = link_to user.identify, edit_user_path(user)
+            td
+              = user.name
+            td
+              = user.email
+            td
+              = user.role
+            td
+              = user.posts.count
+            td.action
+              = link_to "Delete", user_path(user), method: :delete, data: { confirm: "Are you sure?" }
+
+  .col-md-12.text-center
+    = paginate @users

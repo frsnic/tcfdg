@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :comments,   except: [:show, :new, :create]
     resources :activities
     resources :news,       except: [:show]
+    resources :users
 
     mount Resque::Server.new, :at => "resque"
   end

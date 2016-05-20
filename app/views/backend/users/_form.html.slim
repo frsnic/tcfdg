@@ -1,0 +1,10 @@
+= simple_form_for user, html: { id: "user_form" }, url: user do |f|
+  = f.error_notification
+  = f.input :identify, label: '帳號'
+  = f.input :name, label: '名稱'
+  = f.input :email, label: '電子郵件'
+  = f.input :role, collection: User.roles.to_a, selected: user[:role], label: '角色'
+  .row
+    .col-md-12
+      .form-group
+        = f.button :submit, "儲存", class: "btn btn-primary top-buffer pull-right"
