@@ -46,9 +46,11 @@ group :development do
 
   gem 'rails-erd'
 
-  gem "bullet"
+  gem 'bullet'
 
-  gem "lol_dba"
+  gem 'lol_dba'
+
+  gem 'bundler-audit'
 end
 
 gem 'slim-rails'
@@ -61,7 +63,7 @@ gem 'simple_form'
 
 gem 'kaminari'
 
-gem "wpdb_activerecord", '= 1.02'
+gem 'wpdb_activerecord', '= 1.02'
 
 gem 'handlebars_assets'
 
