@@ -2,18 +2,17 @@
   .col-md-12
     header.entry-header.bottom-buffer
       h3
-        = "帳號：#{@user.name}"
+        = "#{@user.name}"
     .row
-      - @recent_posts.each do |post|
-        .col-md-12
-          h4
-            = link_to post.title, frontend_post_path(post.id, post.handle)
-            small
-              = post.posted_at.strftime("%Y-%m-%d")
-          p
-            = truncate(strip_users(post.content), length: 50)
-            = link_to "Edit", edit_post_path(post), class: "margin-left-10"
-          hr
-
-    .row.text-center
-      = paginate @recent_posts
+      .col-md-12
+        ul
+          li
+            = "帳號：#{@user.identify}"
+          li
+            = "電子郵件：#{@user.email}"
+          li
+            = "角色：#{@user.role}"
+        hr
+          = link_to "Edit", edit_user_path(@user), class: "margin-left-10 btn btn-primary"
+          - if can? :manage, User
+            = link_to "Delete", user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "margin-left-10 btn btn-danger"

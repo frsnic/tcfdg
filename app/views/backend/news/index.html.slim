@@ -3,7 +3,8 @@
     h3 新聞
     hr
   .col-md-12
-    = link_to "新增新聞", new_news_path, class: "btn btn-success bottom-buffer"
+    - if can? :manage, News
+      = link_to "新增新聞", new_news_path, class: "btn btn-success bottom-buffer"
     table.table.table-hover.table-striped
       thead
         tr
@@ -21,7 +22,8 @@
             td
               = link_to "連結", news.link, target: "_blank"
             td.action
-              = link_to "Delete", news_path(news), method: :delete, data: { confirm: "Are you sure?" }
+              - if can? :manage, News
+                = link_to "Delete", news_path(news), method: :delete, data: { confirm: "Are you sure?" }
 
     .col-md-12.text-center
       = paginate @newses

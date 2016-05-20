@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   scope "/admin", module: :backend do
     get '/', to: 'dashboard#index', as: :dashboard
 
-    resources :posts
+    resources :posts,      except: [:show]
     resources :previews,   only: [:create]
     resources :categories
     resources :tags

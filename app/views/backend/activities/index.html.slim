@@ -3,7 +3,8 @@
     h3 活動
     hr
   .col-md-12
-    = link_to "新增活動", new_activity_path, class: "btn btn-success bottom-buffer"
+    - if can? :manage, Activity
+      = link_to "新增活動", new_activity_path, class: "btn btn-success bottom-buffer"
     table.table.table-hover.table-striped
       thead
         tr
@@ -21,8 +22,9 @@
             td
               = content_tag :span, activity.location, class: "one-line-solgan", style: "max-width: 200px;"
             td.action
-              = link_to "Edit", edit_activity_path(activity)
-              = link_to "Delete", activity_path(activity), method: :delete, data: { confirm: "Are you sure?" }
+              - if can? :manage, Activity
+                = link_to "Edit", edit_activity_path(activity)
+                = link_to "Delete", activity_path(activity), method: :delete, data: { confirm: "Are you sure?" }
 
     .col-md-12.text-center
       = paginate @activities

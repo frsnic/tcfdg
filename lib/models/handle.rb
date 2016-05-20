@@ -16,8 +16,8 @@ module Models
 
     module InstanceMethods
 
-      def handle_valid(records) # make sure only one
-        self.handle = self.title if self.handle.blank?
+      def handle_valid(title, records) # make sure only one
+        self.handle = title if self.handle.blank?
         handle = unique_handle = Models::Handle.handleize(self.handle)
         number = 1
         condition = ""

@@ -28,7 +28,7 @@ class Post < ActiveRecord::Base
 
   # callbacks .................................................................
   before_save do
-    self.handle_valid(Post) if self.handle.blank?
+    self.handle_valid(self.title, Post) if self.handle.blank?
     self.image_responsive
     self.set_images
     self.set_excerpt if self.excerpt.blank?

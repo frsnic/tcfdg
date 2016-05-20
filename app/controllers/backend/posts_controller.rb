@@ -4,10 +4,6 @@ class Backend::PostsController < Backend::ApplicationController
     @posts = Post.post.includes(:categories, :user).page params[:page]
   end
 
-  def show
-    @post = Post.find params[:id]
-  end
-
   def new
     @post = current_user.posts.new
     @post.build_post_meta

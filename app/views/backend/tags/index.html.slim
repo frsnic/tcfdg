@@ -25,8 +25,9 @@
                 = tag.posts.size
               td.action
                 = link_to "Show", tag_path(tag)
-                = link_to "Edit", edit_tag_path(tag)
-                = link_to "Delete", tag_path(tag), method: :delete, data: { confirm: "Are you sure?" }
+                - if can? :manage, Tag
+                  = link_to "Edit", edit_tag_path(tag)
+                  = link_to "Delete", tag_path(tag), method: :delete, data: { confirm: "Are you sure?" }
 
     .col-md-12.text-center
       = paginate @tags

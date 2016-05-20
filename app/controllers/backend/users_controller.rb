@@ -15,7 +15,7 @@ class Backend::UsersController < Backend::ApplicationController
 
   def create
     if @user = User.find_or_create_by(user_params)
-      redirect_to users_path, flash: { success: "新增成功" }
+      redirect_to user_path(@user), flash: { success: "新增成功" }
     else
       render :new
     end
@@ -26,9 +26,15 @@ class Backend::UsersController < Backend::ApplicationController
   end
 
   def update
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+    params[:user].delete(:role) unless can? :manage, User
     @user = User.find params[:id]
+
     if @user.update user_params
-      redirect_to users_path, flash: { success: "修改成功" }
+      redirect_to user_path, flash: { success: "修改成功" }
     else
       render :edit
     end
@@ -43,7 +49,7 @@ class Backend::UsersController < Backend::ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :identify)
+    params.require(:user).permit(:email, :identify, :name, :role, :password, :password_confirmation)
   end
 
 end
