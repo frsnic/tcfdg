@@ -9,7 +9,7 @@
           .postmeta
             h4
               = "#{@post.posted_at.strftime("%Y-%m-%d")} | "
-              = @post.comments.present? ? "#{@post.comments.count}則迴響" : "無迴響"
+              = @post.comments.present? ? "#{@post.comments.size}則迴響" : "無迴響"
           .entry-content
             = @post.content.html_safe
       hr

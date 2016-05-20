@@ -1,7 +1,7 @@
 class Backend::CommentsController < Backend::ApplicationController
 
   def index
-    @comments = Comment.page params[:page]
+    @comments = Comment.includes(:post).page params[:page]
   end
 
   def edit

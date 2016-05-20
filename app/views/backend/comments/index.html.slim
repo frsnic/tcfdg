@@ -20,7 +20,7 @@
             td
               = link_to comment.post.title, frontend_post_path(comment.post.id, comment.post.handle), class: "one-line-solgan", style: "max-width: 300px;", target: "_blank"
               = content_tag :span, comment.created_at.strftime("%Y-%m-%d %H:%M"), class: "vertical-align-middle"
-              = content_tag :span, comment.post.comments.count, class: "badge margin-left-10 vertical-align-middle"
+              = content_tag :span, comment.post.comments.size, class: "badge margin-left-10 vertical-align-middle"
             td.action
               = link_to "Edit", edit_comment_path(comment)
               = link_to "Delete", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }

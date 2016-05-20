@@ -11,7 +11,7 @@
                 li
                   h4
                     = link_to tag.name, "/tags/#{tag.name}", class: "margin-right-10"
-                    = "(#{tag.posts.count})"
+                    = "(#{tag.posts.size})"
 
     .col-md-12.text-center
       = paginate @tags

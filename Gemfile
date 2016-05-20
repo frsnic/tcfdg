@@ -45,6 +45,10 @@ group :development do
   gem 'spring'
 
   gem 'rails-erd'
+
+  gem "bullet"
+
+  gem "lol_dba"
 end
 
 gem 'slim-rails'

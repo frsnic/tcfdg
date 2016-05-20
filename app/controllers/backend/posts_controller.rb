@@ -1,7 +1,7 @@
 class Backend::PostsController < Backend::ApplicationController
 
   def index
-    @posts = Post.post.includes(:comments, :categories, :user).page params[:page]
+    @posts = Post.post.includes(:categories, :user).page params[:page]
   end
 
   def show
