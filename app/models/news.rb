@@ -8,7 +8,7 @@ class News < ActiveRecord::Base
 
   # callbacks .................................................................
   before_save do
-    self.set_link unless self.link.match(/^http/)
+    self.link = "http://#{self.link}" unless self.link.match(/^http/)
   end
 
   # scopes ....................................................................
@@ -19,10 +19,6 @@ class News < ActiveRecord::Base
 
   # class methods .............................................................
   # public instance methods ...................................................
-  def set_link
-    self.link = "http://#{self.link}"
-  end
-
   # protected instance methods ................................................
   # private instance methods ..................................................
 

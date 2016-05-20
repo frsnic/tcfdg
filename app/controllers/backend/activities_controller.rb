@@ -5,11 +5,9 @@ class Backend::ActivitiesController < Backend::ApplicationController
   end
 
   def show
-    @activity = Activity.find params[:id]
   end
 
   def new
-    @activity = Activity.new
   end
 
   def create
@@ -21,11 +19,9 @@ class Backend::ActivitiesController < Backend::ApplicationController
   end
 
   def edit
-    @activity = Activity.find params[:id]
   end
 
   def update
-    @activity = Activity.find params[:id]
     if @activity.update activity_params
       redirect_to activities_path, flash: { success: "修改成功" }
     else
@@ -34,7 +30,6 @@ class Backend::ActivitiesController < Backend::ApplicationController
   end
 
   def destroy
-    @activity = Activity.find params[:id]
     @activity.destroy
     redirect_to activities_path, flash: { success: "刪除成功" }
   end

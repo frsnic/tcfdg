@@ -31,6 +31,11 @@ class Ability
 
     return false unless user
 
+    # default
+    # alias_action :index, :show, :to => :read
+    # alias_action :new, :to => :create
+    # alias_action :edit, :to => :update
+
     case user.role
     when 'admin'
       can :manage, :all
@@ -47,8 +52,8 @@ class Ability
     can [:index, :create], Post
     can [:create], Preview
     can [:index], Comment
-    can [:index, :show, :create], Category
-    can [:index, :show, :create], Tag
+    can [:read, :create], Category
+    can [:read, :create], Tag
     can [:index], News
     can [:index, :show], Activity
 

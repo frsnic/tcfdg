@@ -13,7 +13,14 @@ class User < ActiveRecord::Base
   has_many :previews, dependent: :destroy
 
   # validations ...............................................................
+  validates_presence_of :email, :identify
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+
   # callbacks .................................................................
+  before_save do
+    self.name = self.identify if self.name.blank?
+  end
+
   # scopes ....................................................................
   # additional config .........................................................
   enum role: [:admin, :editor, :author]

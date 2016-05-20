@@ -20,11 +20,9 @@ class Backend::PostsController < Backend::ApplicationController
   end
 
   def edit
-    @post = Post.find params[:id]
   end
 
   def update
-    @post = Post.find params[:id]
     if @post.update post_params
       redirect_to posts_path, flash: { success: "修改成功" }
     else
@@ -33,7 +31,6 @@ class Backend::PostsController < Backend::ApplicationController
   end
 
   def destroy
-    @post = Post.find params[:id]
     @post.destroy
     redirect_to posts_path, flash: { success: "刪除成功" }
   end

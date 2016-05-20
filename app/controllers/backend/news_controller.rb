@@ -5,7 +5,6 @@ class Backend::NewsController < Backend::ApplicationController
   end
 
   def new
-    @news = News.new
   end
 
   def create
@@ -17,11 +16,9 @@ class Backend::NewsController < Backend::ApplicationController
   end
 
   def edit
-    @news = News.find params[:id]
   end
 
   def update
-    @news = News.find params[:id]
     if @news.update news_params
       redirect_to news_index_path, flash: { success: "修改成功" }
     else
@@ -30,7 +27,6 @@ class Backend::NewsController < Backend::ApplicationController
   end
 
   def destroy
-    @news = News.find params[:id]
     @news.destroy
     redirect_to news_index_path, flash: { success: "刪除成功" }
   end

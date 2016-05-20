@@ -5,16 +5,16 @@ class Backend::UsersController < Backend::ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
     @recent_posts = @user.posts.page params[:page]
   end
 
   def new
-    @user = User.new
   end
 
   def create
-    if @user = User.find_or_create_by(user_params)
+    @user = User.new(user_params)
+
+    if @user.save
       redirect_to user_path(@user), flash: { success: "新增成功" }
     else
       render :new
@@ -22,7 +22,6 @@ class Backend::UsersController < Backend::ApplicationController
   end
 
   def edit
-    @user = User.find params[:id]
   end
 
   def update
@@ -31,7 +30,6 @@ class Backend::UsersController < Backend::ApplicationController
       params[:user].delete(:password_confirmation)
     end
     params[:user].delete(:role) unless can? :manage, User
-    @user = User.find params[:id]
 
     if @user.update user_params
       redirect_to user_path, flash: { success: "修改成功" }
@@ -41,7 +39,6 @@ class Backend::UsersController < Backend::ApplicationController
   end
 
   def destroy
-    @user = User.find params[:id]
     @user.destroy
     redirect_to users_path, flash: { success: "刪除成功" }
   end
