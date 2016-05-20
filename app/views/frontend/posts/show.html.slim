@@ -13,6 +13,8 @@
           .entry-content
             = @post.content.html_safe
       hr
+      = render 'frontend/templates/share_buttons'
+      hr
       .row
         .col-md-12
           = render partial: 'frontend/comments/show', locals: { comments: @post.comments } if @post.comments.present?
