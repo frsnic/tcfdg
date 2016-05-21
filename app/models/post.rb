@@ -94,7 +94,7 @@ class Post < ActiveRecord::Base
   end
 
   def set_excerpt
-    self.excerpt = ActionController::Base.helpers.strip_tags(p.content.delete("\n").delete("\r")).truncate(255)
+    self.excerpt = ActionController::Base.helpers.strip_tags(self.content.delete("\n").delete("\r")).truncate(255)
   end
 
   def main_picture
