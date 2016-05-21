@@ -1,6 +1,6 @@
 aside.bottom-buffer
   h4 標籤
-  .entry-content
+  .entry-content.tag-list
     - tag_count = PostTag.group(:tag_id).limit(20).order("count(tag_id) desc").count
     - search_tag_ids = tag_count.keys
     - Tag.where(id: search_tag_ids).select(:id, :name).find_each do |tag|
