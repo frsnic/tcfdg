@@ -4,7 +4,7 @@
  */
 
 body {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 a {
@@ -205,14 +205,6 @@ ul {
     border-bottom-color: #ccc;
     color: #333;
   }
-}
-
-.one-line {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: inherit;
-  word-break: break-word;
 }
 
 .center {

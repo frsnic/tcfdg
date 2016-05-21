@@ -23,7 +23,7 @@
             .col-md-10.col-xs-10.inner-box
               h3.one-line-solgan
                 | 近期活動
-              = @activity.name
+              = content_tag :span @activity.name, class: "one-line-solgan"
               p
                 ul.text-left
                   li
