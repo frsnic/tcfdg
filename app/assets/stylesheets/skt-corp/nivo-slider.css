@@ -7,9 +7,9 @@
  * Free to use and abuse under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
  */
- 
+
 /* The Nivo Slider styles */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 .nivoSlider {
 	position:relative;
 	width:100%;
@@ -24,7 +24,7 @@
 }
 .nivo-main-image {
 	display: block !important;
-	position: relative !important; 
+	position: relative !important;
 	width: 100% !important;
 }
 
@@ -40,8 +40,8 @@
 	margin:0;
 	z-index:6;
 	display:none;
-	background:white; 
-	filter:alpha(opacity=0); 
+	background:white;
+	filter:alpha(opacity=0);
 	opacity:0;
 }
 /* The slices and boxes in the Slider */
@@ -83,7 +83,7 @@
 }
 .nivo-caption h1{
 	font-weight:lighter;
-	padding:0; 
+	padding:0;
 	margin:0;
 	text-transform:capitalize !important;
 	line-height:45px;
@@ -227,10 +227,10 @@ Supports Thumbs: true
 	height: auto;
 }
 
-@media only screen and (min-width:1000px) { 
+@media only screen and (min-width:1000px) {
 	.nivo-caption{width:530px; bottom:79px;}
 	.nivo-caption h1{ font:44px 'open sans condensed',san-serif;}
-	
+
 }
 @media only screen and (min-width: 768px) and (max-width: 999px) {
 	.nivo-caption{width:47%; bottom:55px;}
