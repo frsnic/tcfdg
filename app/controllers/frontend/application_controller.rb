@@ -7,7 +7,7 @@ class Frontend::ApplicationController < ApplicationController
 
   def prepare_meta_tags(options = {})
     site_name   = Setting.name
-    title       = options[:title]
+    title       = options[:title] || Setting.name
     description = options[:description] || Setting.description
     keywords    = "#{options[:keywords]}, #{Setting.keywords}".strip.split(/, */).reject { |e| e.empty? }
     image       = options[:image].present? ? "#{Setting.url}#{options[:image]}" : "#{Setting.url}/images/logo.jpg"
