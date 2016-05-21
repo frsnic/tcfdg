@@ -28,8 +28,8 @@ class Backend::ApplicationController < ApplicationController
       noindex: true,
       nofollow: true,
       icon: [
-        { href: '/favicon.ico' },
-        { href: '/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' },
+        { href: '/images/favicon.ico' },
+        { href: '/images/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' },
       ],
     }
 

@@ -10,7 +10,7 @@ class Frontend::ApplicationController < ApplicationController
     title       = options[:title]
     description = options[:description] || Setting.description
     keywords    = "#{options[:keywords]}, #{Setting.keywords}".strip.split(/, */).reject { |e| e.empty? }
-    image       = options[:image].present? ? "#{Setting.url}#{options[:image]}" : "#{Setting.url}#{ActionController::Base.helpers.asset_path('logo_text.gif')}"
+    image       = options[:image].present? ? "#{Setting.url}#{options[:image]}" : "#{Setting.url}/images/logo.jpg"
     current_url = request.url
 
     hash = {
@@ -28,8 +28,8 @@ class Frontend::ApplicationController < ApplicationController
         type: options[:og_type] || 'website'
       },
       icon: [
-        { href: '/favicon.ico' },
-        { href: '/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' },
+        { href: '/images/favicon.ico' },
+        { href: '/images/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' },
       ],
       alternate: [
         { href: Setting.rss, type: 'application/rss+xml', title: 'RSS' },
