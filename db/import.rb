@@ -28,7 +28,7 @@ WPDB::Term.find_each do |tag|
     updated_at: Time.now
   )
 end
-# Tag.find(9).delete
+# Tag.find(9).delete ???
 
 WPDB::TermRelationship.find_each do |post_tag|
   PostTag.create(
@@ -71,10 +71,10 @@ WPDB::Term.category.find_each do |category|
     updated_at: Time.now
   )
 end
-# Category.first.delete
-# Category.find_by_name("城市議題").update(handle: "city-issue")
-# Category.find_by_name("城市故事").update(handle: "city-story")
-# Category.find_by_name("港台交流").update(handle: "hk-communicate")
+Category.first.delete
+Category.find_by_name("城市議題").update(handle: "city-issue")
+Category.find_by_name("城市故事").update(handle: "city-story")
+Category.find_by_name("港台交流").update(handle: "hk-communicate")
 
 WPDB::Post.find_each do |wp_post|
   post = Post.find_by_id(wp_post.id)

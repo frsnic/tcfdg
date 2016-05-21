@@ -15,7 +15,7 @@ Post.post.publish.each do |post|
   doc = Nokogiri::HTML post.content
   doc.search("img").each do |image|
     file_name = CGI::unescape image.attr("src").split("/").last
-    folder = "/home/hank/workspace/tcfdg_wordpress/taichung-fieldwork/wp-content/uploads/"
+    folder = "/var/www/taichung-fieldwork/wp-content/uploads/"
     if File.exist?(folder + file_name)
       ck = Ckeditor::Picture.new
       ck.data = File.open("#{folder}/#{file_name}")

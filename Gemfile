@@ -51,6 +51,12 @@ group :development do
   gem 'lol_dba'
 
   gem 'bundler-audit'
+
+  gem 'capistrano-rails'
+
+  gem 'capistrano-passenger'
+
+  gem 'capistrano-rvm'
 end
 
 gem 'slim-rails'
@@ -63,7 +69,7 @@ gem 'simple_form'
 
 gem 'kaminari'
 
-gem 'wpdb_activerecord', '= 1.02'
+gem 'wpdb_activerecord'
 
 gem 'handlebars_assets'
 
