@@ -33,7 +33,8 @@ class Frontend::ApplicationController < ApplicationController
       ],
       alternate: [
         { href: Setting.rss, type: 'application/rss+xml', title: 'RSS' },
-      ]
+      ],
+      viewport: 'width=device-width, initial-scale=1.0'
     }
 
     set_meta_tags hash
