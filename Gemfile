@@ -94,3 +94,5 @@ gem 'nokogiri'
 gem 'ransack'
 
 gem 'cancancan', '~> 1.10'
+
+gem 'rollbar'
