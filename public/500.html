@@ -1,66 +1,163 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+  <title>台中城市發展田調團</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/png" href="/images/apple-touch-icon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+  <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.1/rails.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+  <style type="text/css">
+    .custom-error {
+      text-align: center;
+    }
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+    .custom-error h1, .custom-error h2 {
+      border: none;
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+    }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .custom-error h1 {
+      font-size: 8.0em;
+      text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-error h2 {
+      font-size: 2.0em;
+      line-height: 2.0em;
+    }
+
+    #copyright {
+      background: #666565;
+      color: #fff;
+      padding: 10px;
+      font-size: 12px;
+    }
+
+    #copyright a {
+      color: #fff;
+    }
+
+    #copyright a:hover {
+      color: #7ab040;
+    }
+
+    .top-buffer {
+      margin-top: 20px;
+    }
+
+    .bottom-buffer {
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 767px) {
+      .navbar-brand {
+        padding: 0;
+      }
+      .navbar-brand img{
+        width: 240px;
+        margin-top: 5px;
+        margin-left: 5px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand">
+            <img class="img" src="/images/logo_text.gif" alt="Logo text" />
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <div class="pull-right">
+            <form class="navbar-form" role="search" action="/search" accept-charset="UTF-8" method="get">
+              <input name="utf8" type="hidden" value="&#x2713;" />
+              <div class="input-group">
+                <input type="search" name="q" id="q" value="" placeholder="Search" class="form-control" />
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a data-no-turbolink="true" href="/about_us">關於田調團</a>
+            </li>
+            <li>
+              <a href="/city-issue">城市議題</a>
+            </li>
+            <li>
+              <a href="/city-story">城市故事</a>
+            </li>
+            <li>
+              <a href="/hk-communicate">港台交流</a>
+            </li>
+            <li>
+              <a href="/activities">活動資訊</a>
+            </li>
+            <li>
+              <a href="/news">相關新聞</a>
+            </li>
+            <li>
+              <a data-no-turbolink="true" href="/contact_us">聯絡我們</a>
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+      <!--/.container-fluid -->
+    </nav>
+
+    <div class="container-fluid top-buffer bottom-buffer">
+      <div class="custom-error">
+        <h1 class="error-title title">500</h1>
+        <h2 class="error-message">Internal Server Error</h2>
+        <div class="error-content">
+          <p>Oops, Something went wrong.</p>
+          <p><a href="/"><span>Return to the Homepage</span></a></p>
+        </div>
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+
+    <footer class="footer" id="copyright">
+      <div class="container-fluid">
+        <div class="pull-left" style="margin: 3px;">
+          <a href="/">台中城市發展田調團</a> | Copyright © 2016. All Rights Reserved.
+          <br> 除另有註明，網站內容皆採用
+          <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/tw/">創用 CC BY-NC-ND 3.0 TW</a>
+        </div>
+        <div class="pull-right">
+          <a href="https://www.facebook.com/taichungfieldwork">
+            <img alt="Facebook" style="margin: 3px;" src="/images/fb_icon.png" />
+          </a>
+          <a href="http://feeds.feedburner.com/taichung-fieldwork/rss" rel="alternate">
+            <img src="//feedburner.google.com/fb/images/pub/feed-icon32x32.png" style="border: 0">
+          </a>
+        </div>
+      </div>
+    </footer>
   </div>
+
 </body>
+
 </html>
