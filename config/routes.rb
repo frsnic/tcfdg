@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     get  '/preview/:token',    to: 'previews#show'
     get  '/categories',        to: 'categories#index'
     get  '/tags',              to: 'tags#index'
-    get  '/tags/:name',        to: 'tags#show'
+    get  '/tags/:name',        to: 'tags#show',       as: :frontend_tag
     get  '/activities',        to: 'activities#index'
     get  '/activities/:id',    to: 'activities#show', as: :frontend_activity
     get  '/news',              to: 'news#index',      as: :frontend_news

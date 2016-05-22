@@ -96,3 +96,7 @@ gem 'ransack'
 gem 'cancancan', '~> 1.10'
 
 gem 'rollbar'
+
+gem 'sitemap_generator'
+
+gem 'whenever'

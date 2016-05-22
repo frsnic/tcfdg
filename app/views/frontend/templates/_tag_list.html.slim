@@ -4,4 +4,4 @@ aside.bottom-buffer
     - tag_count = PostTag.group(:tag_id).limit(20).order("count(tag_id) desc").count
     - search_tag_ids = tag_count.keys
     - Tag.where(id: search_tag_ids).select(:id, :name).find_each do |tag|
-      = link_to tag.name, "/tags/#{tag.name}", title: "#{tag_count[tag.id]} 篇話題", style: search_tag_ids.index(tag.id) < 5 ? "font-size: 22pt;" : ""
+      = link_to tag.name, frontend_tag_path(tag.name), title: "#{tag_count[tag.id]} 篇話題", style: search_tag_ids.index(tag.id) < 5 ? "font-size: 22pt;" : ""

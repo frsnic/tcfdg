@@ -28,4 +28,4 @@ config/app_config.yml
 config/initializers/ckeditor_dragonfly.rb
 config/initializers/rollbar.rb
 public/files/*
-
+public/sitemap.xml*
