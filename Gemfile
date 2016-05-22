@@ -57,6 +57,8 @@ group :development do
   gem 'capistrano-passenger'
 
   gem 'capistrano-rvm'
+
+  gem "capistrano-resque"
 end
 
 gem 'slim-rails'
