@@ -1,23 +1,17 @@
 =tcfdg
 
-===TODO
+===Erd
+![tcfdg](https://raw.githubusercontent.com/frsnic/tcfdg/master/erd.jpg)
 
-* comment create
+===Todo
 
-* share btn
-
-* post image/file
-
-* email test
+* dragonfly auto resize image
 
 * sub category
 
 * post parent_id
 
-* activity
-
-* search
-
-* google check
-
 * seo
+
+--------------------------
+Copyright © 2016 frsnic. All rights reserved.
