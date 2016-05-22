@@ -31,6 +31,10 @@ ul {
   margin-left: 5px;
 }
 
+.bxslider li:nth-child(n+2) {
+  display: none;
+}
+
 .bx-wrapper {
   margin: 0 auto 45px;
 }
