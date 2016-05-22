@@ -1,4 +1,5 @@
-# tcfdg
+# tcfdg [![Build Status](https://travis-ci.org/frsnic/tcfdg.svg?branch=master)](https://travis-ci.org/frsnic/tcfdg)
+
 
 ### Erd
 ![tcfdg](https://raw.githubusercontent.com/frsnic/tcfdg/master/erd.jpg)
