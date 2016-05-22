@@ -1,9 +1,9 @@
-=tcfdg
+# tcfdg
 
-===Erd
+### Erd
 ![tcfdg](https://raw.githubusercontent.com/frsnic/tcfdg/master/erd.jpg)
 
-===Todo
+### Todo
 
 * dragonfly auto resize image
 
