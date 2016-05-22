@@ -3,11 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-require 'resque/tasks'
-
 Rails.application.load_tasks
-
-task "resque:setup" => :environment do
-  ENV['QUEUE'] ||= '*'
-  Resque.before_fork = Proc.new { ActiveRecord::Base.establish_connection }
-end
