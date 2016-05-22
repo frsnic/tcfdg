@@ -13,6 +13,14 @@
           .entry-content
             = @post.content.html_safe
       hr
+        - if @post.categories.present?
+          | 分類：
+          = @post.categories.collect { |category| link_to category.name, frontend_category_path(category.handle) }.join(', ').html_safe
+          br
+        - if @post.tags.present?
+          | 標籤：
+          = @post.tags.collect { |tag| link_to tag.name, frontend_tag_path(tag.name) }.join(', ').html_safe
+      hr
       = render 'frontend/templates/share_buttons'
       hr
       .row
