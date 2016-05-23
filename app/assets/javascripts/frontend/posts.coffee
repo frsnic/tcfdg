@@ -5,6 +5,9 @@
 ready = ->
   $("#new_comment").submit (e) ->
     e.preventDefault()
+    if grecaptcha.getResponse() == ""
+      alert("請輸入驗證碼！")
+      return
     $("#new_comment_submit").attr("disabled", true)
     $.ajax
       url: $("#new_comment").attr("action"),

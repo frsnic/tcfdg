@@ -137,7 +137,7 @@ GEM
       mime-types (>= 1.16, < 4)
     meta-tags (2.1.0)
       actionpack (>= 3.0.0)
-    mime-types (3.0)
+    mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.0.0)
@@ -145,7 +145,6 @@ GEM
     mono_logger (1.1.0)
     multi_json (1.12.1)
     mysql2 (0.3.21)
-    nested_form (0.3.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.1.1)
@@ -313,7 +312,6 @@ DEPENDENCIES
   lol_dba
   meta-tags
   mysql2
-  nested_form
   nokogiri
   rails (= 4.2.6)
   rails-erd

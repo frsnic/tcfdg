@@ -18,3 +18,15 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<script type="text/javascript">
+
+$("#new_user").submit(function( e ) {
+  if ( grecaptcha.getResponse() == "" ) {
+    e.preventDefault();
+    alert("請輸入驗證碼！");
+    return;
+  }
+});
+
+</script>>
