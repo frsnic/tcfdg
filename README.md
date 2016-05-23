@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/frsnic/tcfdg.svg?branch=master)](https://travis-ci.org/frsnic/tcfdg)
 
-### Installation Requirement
+### Requirements
 
 * Mysql
 * Redis (Ubuntu: sudo apt-get install redis-server)
