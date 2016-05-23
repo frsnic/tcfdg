@@ -3,11 +3,9 @@
 
 $(document).on 'ready page:load', ->
 
-  $('.bxslider').bxSlider
+  $('.bxslider').show().bxSlider
     auto: true
     slideWidth: 1010
     autoControls: true
     pause: 2000
-    onSliderLoad: ()->
-      $("ul.bxslider li").show()
   return

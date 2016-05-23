@@ -79,4 +79,7 @@ Rails.application.configure do
 
   # default_url_options
   config.action_mailer.default_url_options = { :host => 'taichung-fieldwork.org' }
+
+  # serve_static_files
+  # config.serve_static_files = true
 end
