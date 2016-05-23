@@ -13,5 +13,3 @@ window.info_msg = (text, delay = null) ->
 
 window.warning_msg = (text, delay = null) ->
   noty( { text: text, layout:'bottomRight', type: 'warning', timeout: false } );
-
-$(document).on 'ready page:load', ->

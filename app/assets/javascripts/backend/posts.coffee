@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on "ready page:load", () ->
+ready = ->
   $(".ckeditor").ckeditor
 
   # category
@@ -67,3 +67,6 @@ $(document).on "ready page:load", () ->
         error_msg("預覽失敗")
       complete: ->
         $("#preview_btn").attr("disabled", false)
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
