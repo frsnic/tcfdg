@@ -1,7 +1,7 @@
 #= require bxslider/jquery.bxslider.min
 # require_self
 
-$(document).on 'ready', ->
+$(document).on 'turbolinks:load', ->
 
   $('.bxslider').show().bxSlider
     auto: true
