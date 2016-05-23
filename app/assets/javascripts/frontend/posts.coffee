@@ -3,7 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', () ->
-  $("#new_comment_submit").click ->
+  $("#new_comment").submit (e) ->
+    e.preventDefault()
     $("#new_comment_submit").attr("disabled", true)
     $.ajax
       url: $("#new_comment").attr("action"),
