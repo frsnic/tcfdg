@@ -19,15 +19,10 @@
 ### Todo
 
 * post author introduction
-
 * dragonfly auto resize image
-
 * sub category
-
 * post parent_id
-
 * remove post.post_type not post
-
 * seo
 
 --------------------------
