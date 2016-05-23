@@ -1,7 +1,7 @@
 #= require bxslider/jquery.bxslider.min
 # require_self
 
-$(document).on 'ready page:load', ->
+$(document).on 'ready page:restore', ->
 
   $('.bxslider').show().bxSlider
     auto: true
