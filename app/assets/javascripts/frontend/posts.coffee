@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on 'ready page:load', () ->
+ready = ->
   $("#new_comment").submit (e) ->
     e.preventDefault()
     $("#new_comment_submit").attr("disabled", true)
@@ -21,3 +21,6 @@ $(document).on 'ready page:load', () ->
         $("#new-comment-errors").removeClass("hide")
         $("#new_comment_submit").attr("disabled", false)
         grecaptcha.reset()
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
