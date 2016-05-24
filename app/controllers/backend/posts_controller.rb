@@ -1,7 +1,7 @@
 class Backend::PostsController < Backend::ApplicationController
 
   def index
-    @posts = Post.post.includes(:categories, :user).page params[:page]
+    @posts = Post.includes(:categories, :user).page params[:page]
   end
 
   def new
@@ -10,7 +10,7 @@ class Backend::PostsController < Backend::ApplicationController
   end
 
   def create
-    @post = current_user.posts.new post_params.merge(post_type: :post)
+    @post = current_user.posts.new post_params
 
     if @post.save
       redirect_to posts_path, flash: { success: "新增成功" }

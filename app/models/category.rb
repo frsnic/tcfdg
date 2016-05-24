@@ -19,7 +19,7 @@ class Category < ActiveRecord::Base
   end
 
   # scopes ....................................................................
-  scope :publish_post, -> { where(posts: { post_type: 'post', status: 'publish' }) }
+  scope :publish_post, -> { where(posts: { status: 'publish' }) }
 
   # additional config .........................................................
   paginates_per 10

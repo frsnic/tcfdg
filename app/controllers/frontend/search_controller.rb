@@ -2,7 +2,7 @@ class Frontend::SearchController < Frontend::ApplicationController
   before_action :validate
 
   def index
-    @posts = Post.post.publish.search(@query).result(:distinct => true).page params[:page]
+    @posts = Post.publish.search(@query).result(:distinct => true).page params[:page]
   end
 
   protected

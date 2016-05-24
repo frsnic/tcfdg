@@ -22,7 +22,7 @@ SitemapGenerator::Sitemap.create do
     add frontend_tag_path(tag.name), :changefreq => 'weekly'
   end
 
-  Post.post.publish.find_each do |post|
+  Post.publish.find_each do |post|
     add frontend_post_path(post.id, post.handle), :changefreq => 'daily'
   end
 

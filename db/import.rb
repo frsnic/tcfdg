@@ -12,7 +12,6 @@ WPDB::Post.find_each do |post|
     ping_status: post.ping_status,
     password: post.post_password,
     handle: URI.unescape(post.post_name),
-    post_type: post.post_type,
     mime_type: post.post_mime_type,
     comment_count: post.comment_count,
     created_at: post.post_modified,
@@ -78,19 +77,19 @@ Category.find_by_name("港台交流").update(handle: "hk-communicate")
 
 WPDB::Post.find_each do |wp_post|
   post = Post.find_by_id(wp_post.id)
-  if post && post.post? && post.publish?
+  if post.try(:publish?)
     wp_post.categories.each do |category|
       post.categories << Category.find(category.term_id)
     end
   end
 end
 
-Post.post.each do |post|
+Post.each do |post|
   post.build_post_meta.save unless post.post_meta
 end
 WPDB::Postmeta.find_each do |wp_postmeta|
   post = Post.find_by_id(wp_postmeta.post_id)
-  if post && post.post? && post.publish?
+  if post.try(:publish?)
     post_meta = post.post_meta || post.build_post_meta
     case wp_postmeta.meta_key
     when '_yoast_wpseo_metadesc'

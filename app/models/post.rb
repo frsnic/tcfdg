@@ -37,22 +37,6 @@ class Post < ActiveRecord::Base
   # scopes ....................................................................
   default_scope { order('posted_at DESC') }
 
-  scope :attachment, -> { where(post_type: 'attachment') }
-
-  scope :nav_menu_item, -> { where(post_type: 'nav_menu_item') }
-
-  scope :wp_page, -> { where(post_type: 'page') }
-
-  scope :post, -> { where(post_type: 'post') }
-
-  scope :revision, -> { where(post_type: 'revision') }
-
-  scope :safecss, -> { where(post_type: 'safecss') }
-
-  scope :wpcf7_contact_form, -> { where(post_type: 'wpcf7_contact_form') }
-
-  scope :preview, -> { where(post_type: 'preview') }
-
   scope :publish, -> { where(status: "publish") }
 
   # additional config .........................................................
@@ -60,10 +44,6 @@ class Post < ActiveRecord::Base
 
   # class methods .............................................................
   # public instance methods ...................................................
-  def post?
-    post_type == "post"
-  end
-
   def publish?
     status == "publish"
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520043214) do
+ActiveRecord::Schema.define(version: 20160524030413) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -126,7 +126,6 @@ ActiveRecord::Schema.define(version: 20160520043214) do
     t.string   "ping_status",     limit: 255
     t.string   "password",        limit: 255
     t.string   "handle",          limit: 255
-    t.string   "post_type",       limit: 255
     t.string   "mime_type",       limit: 255
     t.integer  "comment_count",   limit: 4
     t.datetime "created_at",                                null: false

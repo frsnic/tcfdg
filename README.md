@@ -27,8 +27,6 @@
 
 * post parent_id
 
-* remove post.post_type not post
-
 * seo
 
 --------------------------

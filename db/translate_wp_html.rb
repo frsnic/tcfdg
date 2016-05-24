@@ -2,7 +2,7 @@ require 'open-uri'
 
 Post.find(166).destroy
 arr = []
-Post.post.publish.each do |post|
+Post.publish.each do |post|
   puts "== #{post.id} #{post.title} =="
   doc = Nokogiri::HTML(open("http://taichung-fieldwork.org/#{post.id}/#{CGI::escape post.handle}"))
   content = doc.at_css("div.entry-content").to_html
