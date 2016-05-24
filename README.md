@@ -2,11 +2,10 @@
 
 [![Build Status](https://travis-ci.org/frsnic/tcfdg.svg?branch=master)](https://travis-ci.org/frsnic/tcfdg)
 
-### Installation
+### Requirements
 
-*Requirement*
-1. Mysql
-2. Redis (Ubuntu: sudo apt-get install redis-server)
+* Mysql
+* Redis (Ubuntu: sudo apt-get install redis-server)
 
 ### Usage
 
@@ -20,14 +19,11 @@
 ### Todo
 
 * post author introduction
-
 * dragonfly auto resize image
-
 * sub category
-
 * post parent_id
-
 * seo
 
 --------------------------
 Copyright © 2016 frsnic. All rights reserved.
+
