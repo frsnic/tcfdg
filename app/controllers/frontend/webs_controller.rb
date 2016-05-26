@@ -3,6 +3,11 @@ class Frontend::WebsController < Frontend::ApplicationController
   def index
     @activity = Activity.is_public.where("start_at > ?", Time.now).order('start_at asc').first
     @activity = Activity.is_public.where("start_at < ?", Time.now).first unless @activity
+
+    respond_to do |format|
+      format.html
+      format.all { render file: 'public/404.html', status: 404 }
+    end
   end
 
   def about_us
