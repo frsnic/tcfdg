@@ -36,18 +36,19 @@ Rails.application.routes.draw do
       post 'send_email'
     end
 
-    post '/:post_id/comment',  to: 'comments#create', as: :post_comments
-    get  '/preview/:token',    to: 'previews#show'
-    get  '/categories',        to: 'categories#index'
-    get  '/tags',              to: 'tags#index'
-    get  '/tags/:name',        to: 'tags#show',       as: :frontend_tag
-    get  '/activities',        to: 'activities#index'
-    get  '/activities/:id',    to: 'activities#show', as: :frontend_activity
-    get  '/news',              to: 'news#index',      as: :frontend_news
-    get  '/date/:year/:month', to: 'webs#date'
-    get  '/search',            to: 'search#index',    as: :search
-    get  '/:id/:handle',       to: 'posts#show',      as: :frontend_post
-    get  '/:handle',           to: 'categories#show', as: :frontend_category
+    post '/:post_id/comment',           to: 'comments#create', as: :post_comments
+    get  '/preview/:token',             to: 'previews#show'
+    get  '/categories',                 to: 'categories#index'
+    get  '/tags',                       to: 'tags#index'
+    get  '/tags/:name',                 to: 'tags#show',       as: :frontend_tag
+    get  '/activities',                 to: 'activities#index'
+    get  '/activities/:id',             to: 'activities#show', as: :frontend_activity
+    get  '/news',                       to: 'news#index',      as: :frontend_news
+    get  '/date/:year/:month',          to: 'webs#date'
+    get  '/wp-content/uploads/:handle', to: 'webs#wp_content'
+    get  '/search',                     to: 'search#index',    as: :search
+    get  '/:id/:handle',                to: 'posts#show',      as: :frontend_post
+    get  '/:handle',                    to: 'categories#show', as: :frontend_category
   end
 
   # Example of regular route:

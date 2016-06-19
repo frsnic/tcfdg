@@ -58,7 +58,9 @@ group :development do
 
   gem 'capistrano-rvm'
 
-  gem "capistrano-resque"
+  gem 'capistrano-resque'
+
+  gem 'better_errors'
 end
 
 gem 'slim-rails'

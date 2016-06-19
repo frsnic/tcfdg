@@ -26,4 +26,11 @@ class Frontend::WebsController < Frontend::ApplicationController
     redirect_to contact_us_path, flash: { success: "發送成功" } and return
   end
 
+  def wp_content
+    handle = CGI::unescape request.original_fullpath.split('?').first.split('/').last
+    redirect_to Ckeditor::Picture.find_by_data_name(handle).url
+  rescue
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
 end
