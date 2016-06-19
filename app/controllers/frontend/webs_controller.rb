@@ -28,7 +28,7 @@ class Frontend::WebsController < Frontend::ApplicationController
 
   def wp_content
     handle = CGI::unescape request.original_fullpath.split('?').first.split('/').last
-    redirect_to Ckeditor::Picture.find_by_data_name(handle).url
+    redirect_to Ckeditor::Asset.find_by_data_name(handle).url
   rescue
     raise ActionController::RoutingError.new('Not Found')
   end
