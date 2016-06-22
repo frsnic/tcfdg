@@ -30,7 +30,7 @@ class Frontend::WebsController < Frontend::ApplicationController
     handle = CGI::unescape request.original_fullpath.split('?').first.split('/').last
     redirect_to Ckeditor::Asset.find_by_data_name(handle).url
   rescue
-    raise ActionController::RoutingError.new('Not Found')
+    redirect_to root_path, flash: { warning: "檔案不存在" }
   end
 
 end

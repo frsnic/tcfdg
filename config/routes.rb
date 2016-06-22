@@ -49,6 +49,8 @@ Rails.application.routes.draw do
     get  '/search',                     to: 'search#index',    as: :search
     get  '/:id/:handle',                to: 'posts#show',      as: :frontend_post
     get  '/:handle',                    to: 'categories#show', as: :frontend_category
+
+    match "*path" => redirect('/'), via: [:get, :post]
   end
 
   # Example of regular route:
