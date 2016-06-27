@@ -10,8 +10,9 @@
 ### Usage
 
 *Start Resque*
-
-	  $ QUEUE=* rake resque:work
+```ruby
+$ QUEUE=* rake resque:work
+```
 
 ### Erd
 ![tcfdg](https://raw.githubusercontent.com/frsnic/tcfdg/master/erd.jpg)
@@ -25,5 +26,4 @@
 * seo
 
 --------------------------
-Copyright © 2016 frsnic. All rights reserved.
-
+Copyright © 2016 frsnic.
