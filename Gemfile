@@ -60,7 +60,7 @@ group :development do
 
   gem 'capistrano-rvm'
 
-  gem 'capistrano-resque'
+  gem 'capistrano-resque', "~> 0.2.2", require: false
 
   gem 'better_errors'
 end

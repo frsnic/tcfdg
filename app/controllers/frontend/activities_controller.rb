@@ -5,7 +5,7 @@ class Frontend::ActivitiesController < Frontend::ApplicationController
   end
 
   def show
-    @activity = Activity.is_public.find params[:id]
+    @activity = Activity.is_public.find params[:id].to_i
     redirect_to root_path, :flash => { error: "目錄已移除" } and return unless @activity
   end
 

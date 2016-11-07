@@ -23,23 +23,24 @@
             .col-md-10.col-xs-10.inner-box
               h3.one-line-solgan
                 | 近期活動
-              = content_tag :span, @activity.name, class: "one-line-solgan"
-              p
-                ul.text-left
-                  li
-                    | 時間：
-                    = @activity.start_at.strftime("%Y-%m-%d %H:%M").sub(" 00:00", "")
-                  - if @activity.location.present?
+              = content_tag :span, @activity.try(:name), class: "one-line-solgan"
+              - if @activity
+                p
+                  ul.text-left
                     li
-                      | 地點：
-                      = @activity.location
-                  li
-                    | 聯絡方式：
-                    a href="mailto: info@taichung-fieldwork.org" info@taichung-fieldwork.org
-                  - if @activity.link.present?
+                      | 時間：
+                      = @activity.start_at.strftime("%Y-%m-%d %H:%M").sub(" 00:00", "")
+                    - if @activity.location.present?
+                      li
+                        | 地點：
+                        = @activity.location
                     li
-                      = link_to "參考連結", @activity.link, target: "_blank"
-                = link_to "Read More ...", frontend_activity_path(@activity)
+                      | 聯絡方式：
+                      a href="mailto: info@taichung-fieldwork.org" info@taichung-fieldwork.org
+                    - if @activity.link.present?
+                      li
+                        = link_to "參考連結", @activity.link, target: "_blank"
+                  = link_to "Read More ...", frontend_activity_path(@activity)
         .bottom-padding
       .col-md-4.col-xs-12
         .ehdiv
@@ -57,9 +58,10 @@
             .col-md-.col-xs-1
             .col-md-10.col-xs-10.inner-box
               - post = Post.publish.first
-              h3.one-line-solgan
-                = post.title
-              p
-                = post.summary
-              = link_to "Read More ...", frontend_post_path(post.id, post.handle)
+              - if post
+                h3.one-line-solgan
+                  = post.title
+                p
+                  = post.summary
+                = link_to "Read More ...", frontend_post_path(post.id, post.handle)
         .bottom-padding
