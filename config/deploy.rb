@@ -22,7 +22,7 @@ set :rvm_ruby_version, '2.2.4@tcfdg'
 set :linked_files, %w(config/app_config.yml config/database.yml config/secrets.yml config/initializers/ckeditor_dragonfly.rb config/initializers/rollbar.rb)
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets public/system)
+set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets public/system public/files)
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
