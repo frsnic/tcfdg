@@ -26,5 +26,7 @@ module Tcfdg
     # Autoload Paths
     config.autoload_paths << "#{Rails.root}/lib"
     config.autoload_paths << "#{Rails.root}/lib/applet"
+
+    config.middleware.use Rack::Attack
   end
 end

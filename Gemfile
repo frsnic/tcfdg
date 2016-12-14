@@ -104,3 +104,5 @@ gem 'rollbar'
 gem 'sitemap_generator'
 
 gem 'whenever'
+
+gem 'rack-attack'
