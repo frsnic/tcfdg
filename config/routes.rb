@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       post 'send_email'
     end
 
+    post '/',                           to: 'webs#index'
     post '/:post_id/comment',           to: 'comments#create', as: :post_comments
     get  '/preview/:token',             to: 'previews#show'
     get  '/categories',                 to: 'categories#index'
