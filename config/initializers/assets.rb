@@ -11,5 +11,6 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w(
+  ckeditor/* ckeditor/lang/*
   *.css *.js *gif *jpg *jpeg *png *woff *ttf *woff2 *eot *svg
 )
