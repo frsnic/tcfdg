@@ -83,7 +83,7 @@ gem 'resque'
 
 gem 'devise'
 
-gem 'ckeditor', git: 'https://github.com/galetahub/ckeditor.git'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 gem 'dragonfly'
 
