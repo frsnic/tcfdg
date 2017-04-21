@@ -65,7 +65,7 @@ group :development do
   gem 'better_errors'
 end
 
-gem 'slim-rails'
+gem 'slim-rails', '3.1.1'
 
 gem 'awesome_print'
 
