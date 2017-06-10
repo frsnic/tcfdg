@@ -75,7 +75,7 @@ GEM
       sshkit (~> 1.2)
     capistrano-passenger (0.2.0)
       capistrano (~> 3.0)
-    capistrano-rails (1.2.3)
+    capistrano-rails (1.3.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     capistrano-resque (0.2.3)
@@ -147,7 +147,7 @@ GEM
       railties (>= 3.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    mail (2.6.5)
+    mail (2.6.6)
       mime-types (>= 1.16, < 4)
     meta-tags (2.4.1)
       actionpack (>= 3.2.0, < 5.2)
@@ -255,7 +255,7 @@ GEM
     slim (3.0.8)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 1.3.3, < 2.1)
-    slim-rails (3.1.2)
+    slim-rails (3.1.1)
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (~> 3.0)
@@ -337,7 +337,7 @@ DEPENDENCIES
   settingslogic
   simple_form
   sitemap_generator
-  slim-rails
+  slim-rails (= 3.1.1)
   spring
   turbolinks
   uglifier
@@ -346,7 +346,7 @@ DEPENDENCIES
   wpdb_activerecord
 
 RUBY VERSION
-   ruby 2.2.4p230
+   ruby 2.4.0p0
 
 BUNDLED WITH
-   1.13.6
+   1.15.1

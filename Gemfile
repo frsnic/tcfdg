@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.4'
+ruby '2.4.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
@@ -65,7 +65,7 @@ group :development do
   gem 'better_errors'
 end
 
-gem 'slim-rails'
+gem 'slim-rails', '3.1.1'
 
 gem 'awesome_print'
 
