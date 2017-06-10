@@ -3,7 +3,7 @@ lock '3.8.1'
 
 set :application, 'tcfdg'
 set :repo_url, 'git@github.com:frsnic/tcfdg.git'
-set :rvm_ruby_version, '2.4.0@tcfdg'
+set :rvm_ruby_version, '2.3.1@tcfdg'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -30,7 +30,7 @@ set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets public/system public/fil
 # Default value for keep_releases is 5
 set :keep_releases, 10
 
-set :passenger_restart_with_touch, true
+# set :passenger_restart_with_touch, true
 
 # resque
 set :resque_rails_env, fetch(:rails_env)
