@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.7.1'
+gem 'rails', '4.2.10'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -63,6 +63,9 @@ group :development do
   gem 'capistrano-resque', "~> 0.2.2", require: false
 
   gem 'better_errors'
+
+  # To fix: gem error
+  # gem 'wpdb_activerecord'
 end
 
 gem 'slim-rails', '3.1.1'
@@ -72,8 +75,6 @@ gem 'awesome_print'
 gem 'simple_form'
 
 gem 'kaminari'
-
-gem 'wpdb_activerecord'
 
 gem 'handlebars_assets'
 
