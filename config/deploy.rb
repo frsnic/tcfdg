@@ -1,9 +1,9 @@
 # config valid only for current version of Capistrano
-lock '3.8.0'
+lock '3.8.1'
 
 set :application, 'tcfdg'
 set :repo_url, 'git@github.com:frsnic/tcfdg.git'
-set :rvm_ruby_version, '2.2.4@tcfdg'
+set :rvm_ruby_version, '2.3.1@tcfdg'
 
 # Default value for :scm is :git
 # set :scm, :git
