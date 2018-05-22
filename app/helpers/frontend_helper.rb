@@ -13,17 +13,17 @@ module FrontendHelper
     end
   end
 
-  def google_tag_manager
+  def gtag
     %Q(
-      <!-- Google Tag Manager -->
-      <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TGKC96"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-TGKC96');</script>
-      <!-- End Google Tag Manager -->
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-59284592-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-59284592-1');
+      </script>
     )
   end
 

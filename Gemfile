@@ -4,7 +4,7 @@ ruby '2.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use sqlite3 as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '~> 0.4.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -51,8 +51,6 @@ group :development do
   gem 'bullet'
 
   gem 'lol_dba'
-
-  gem 'bundler-audit'
 
   gem 'capistrano-rails'
 
