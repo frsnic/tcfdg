@@ -82,7 +82,7 @@ gem 'resque'
 
 gem 'devise'
 
-gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'ckeditor', '~> 4.2.4'
 
 gem 'dragonfly'
 
