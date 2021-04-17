@@ -45,6 +45,7 @@ group :development do
   gem 'annotate'
   gem 'capistrano', require: false
   gem 'foreman'
+  gem 'rack-attack'
   gem 'spring'
 end
 
