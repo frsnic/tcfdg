@@ -31,7 +31,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: vAyqm2gM5vF49fbaVkNG
         run: |
           sudo /etc/init.d/mysql start
-          mysql --host 127.0.0.1 -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}    
+          mysql --host 127.0.0.1 -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }}   
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Ruby
