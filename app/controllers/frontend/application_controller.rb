@@ -6,11 +6,11 @@ class Frontend::ApplicationController < ApplicationController
   layout "frontend_application"
 
   def prepare_meta_tags(options = {})
-    site_name   = Setting.name
-    title       = options[:title] || Setting.name
-    description = options[:description] || Setting.description
-    keywords    = "#{options[:keywords]}, #{Setting.keywords}".strip.split(/, */).reject { |e| e.empty? }
-    image       = options[:image].present? ? "#{Setting.url}#{options[:image]}" : "#{Setting.url}/images/logo.jpg"
+    site_name   = Settings.name
+    title       = options[:title] || Settings.name
+    description = options[:description] || Settings.description
+    keywords    = "#{options[:keywords]}, #{Settings.keywords}".strip.split(/, */).reject { |e| e.empty? }
+    image       = options[:image].present? ? "#{Settings.url}#{options[:image]}" : "#{Settings.url}/images/logo.jpg"
     current_url = request.url
 
     hash = {
@@ -32,7 +32,7 @@ class Frontend::ApplicationController < ApplicationController
         { href: '/images/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' },
       ],
       alternate: [
-        { href: Setting.rss, type: 'application/rss+xml', title: 'RSS' },
+        { href: Settings.rss, type: 'application/rss+xml', title: 'RSS' },
       ],
       viewport: 'width=device-width, initial-scale=1.0'
     }

@@ -5,35 +5,34 @@ class Backend::ApplicationController < ApplicationController
 
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :prepare_meta_tags, if: "request.get?"
+  before_action :prepare_meta_tags, if: 'request.get?'
 
   load_and_authorize_resource
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to dashboard_path, flash: { :warning => exception.message }
+    redirect_to dashboard_path, flash: { warning: exception.message }
   end
 
-  layout "backend_application"
+  layout 'backend_application'
 
   protected
 
   def configure_permitted_parameters
-    added_attrs = [:identify, :password, :password_confirmation, :remember_me]
+    added_attrs = %i[identify password password_confirmation remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
-  def prepare_meta_tags(options = {})
+  def prepare_meta_tags(_options = {})
     hash = {
-      site: Setting.name,
+      site: Settings.name,
       noindex: true,
       nofollow: true,
       icon: [
         { href: '/images/favicon.ico' },
-        { href: '/images/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' },
-      ],
+        { href: '/images/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' }
+      ]
     }
 
     set_meta_tags hash
   end
-
 end

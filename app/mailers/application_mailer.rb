@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: Setting.email.noreply
-
+  default from: Settings.email.noreply
+  layout 'mailer'
 end

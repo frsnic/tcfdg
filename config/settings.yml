@@ -1,0 +1,9 @@
+url: "http://taichung-fieldwork.org"
+name: "台中城市發展田調團"
+keywords: "台中城市發展田調團, 台中田調團"
+description: "一群來自台中或認同台中的青年，不論身在何處，我們討論更好的城市想像，並著手實踐。"
+rss: "//taichung-fieldwork.org/feed"
+email:
+  info: "info@taichung-fieldwork.org"
+  noreply: "noreply@taichung-fieldwork.org"
+raise_delivery_errors: true
