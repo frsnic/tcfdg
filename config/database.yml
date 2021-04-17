@@ -28,6 +28,7 @@ development:
 test:
   <<: *default
   database: tcdfg_wp_test
+  password: vAyqm2gM5vF49fbaVkNG
 
 production:
   <<: *default
