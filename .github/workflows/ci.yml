@@ -23,7 +23,6 @@ jobs:
           MYSQL_DB: tcdfg_wp_test
           MYSQL_USER: root
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_PASSWORD:
         ports:
           - "3306:3306"
       redis:
@@ -62,7 +61,6 @@ jobs:
           RAILS_ENV: test
         run: |
           sudo /etc/init.d/mysql start
-          sleep 10s
           bundle exec rails db:setup
       - name: Run security checks
         run: |
