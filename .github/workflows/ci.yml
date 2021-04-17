@@ -59,7 +59,7 @@ jobs:
         env:
           RAILS_ENV: test
         run: |
-          sudo /etc/init.d/mysql start
+          sudo service mysql start
           bundle exec rails db:setup
       - name: Run security checks
         run: |
