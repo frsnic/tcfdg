@@ -43,9 +43,9 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'annotate'
+  gem 'bundle-audit'
   gem 'capistrano', require: false
   gem 'foreman'
-  gem 'rack-attack'
   gem 'spring'
 end
 
@@ -63,8 +63,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Readonly ActiveRecord-esque
 gem 'active_hash'
 
+gem 'ckeditor'
 gem 'config'
 gem 'devise'
+gem 'dragonfly'
 gem 'rack-attack'
 gem 'resque'
 gem 'simple_form'
