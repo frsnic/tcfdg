@@ -20,8 +20,8 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_HOST: 127.0.0.1
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: tcdfg_wp_test
+          MYSQL_PASSWORD: vAyqm2gM5vF49fbaVkNG
         ports:
           - 3306
       redis:
