@@ -1,7 +1,5 @@
 module Models
-
   module Handle
-
     def self.included(base)
       base.extend(ClassMethods)
       base.send(:include, InstanceMethods)
@@ -15,22 +13,18 @@ module Models
     end
 
     module InstanceMethods
-
       def handle_valid(title, records) # make sure only one
-        self.handle = title if self.handle.blank?
+        self.handle = title if handle.blank?
         handle = unique_handle = Models::Handle.handleize(self.handle)
         number = 1
-        condition = ""
-        condition = "id != #{self.id}" unless self.new_record?
+        condition = ''
+        condition = "id != #{id}" unless new_record?
         while records.where(condition).where(handle: unique_handle).any?
           unique_handle = "#{handle}-#{number}"
           number += 1
         end
         self.handle = unique_handle
       end
-
     end
-
   end
-
 end
