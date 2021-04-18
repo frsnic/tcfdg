@@ -1,6 +1,6 @@
 # tcfdg 
 
-[![Build Status](https://travis-ci.org/frsnic/tcfdg.svg?branch=master)](https://travis-ci.org/frsnic/tcfdg)
+[![CI](https://github.com/frsnic/tcfdg/actions/workflows/ci.yml/badge.svg)](https://github.com/frsnic/tcfdg/actions/workflows/ci.yml)
 
 ### Requirements
 
