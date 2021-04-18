@@ -27,6 +27,7 @@ jobs:
       - name: Set up MySQL
         run: |
           sudo service mysql start
+          mysql –V
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -e "SHOW DATABASES"
       - name: Checkout code
         uses: actions/checkout@v2
