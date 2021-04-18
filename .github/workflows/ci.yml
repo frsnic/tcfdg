@@ -16,18 +16,24 @@ jobs:
         ruby-version: ['2.7.2']
 
     services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        ports:
+          - 3306:3306
+        options:
+          --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3          
       redis:
         image: redis
         ports:
           - 6379:6379
         options: --entrypoint redis-server
 
-    steps: 
+    steps:
       - name: Set up MySQL
         run: |
-          sudo apt-get install -y mysql-client
-          sudo service mysql start
-          mysql --host 127.0.0.1 -uroot -e "SHOW DATABASES"   
+          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -e "SHOW DATABASES"       
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Ruby
@@ -56,7 +62,6 @@ jobs:
         env:
           RAILS_ENV: test
         run: |
-          sudo service mysql start
           bundle exec rails db:setup
       - name: Run security checks
         run: |
