@@ -1,47 +1,39 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand" data-no-turbolink="true" >
-        <%= image_tag "/images/logo_text.gif", class: "img" %>
-      </a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <div class="pull-right">
-        <%= form_tag search_path, method: :get, class: "navbar-form", role: "search" do |f| %>
-          <div class="input-group">
-            <%= text_field_tag :q, "", type: :search, placeholder: "Search", class: "form-control" %>
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to "關於田調團", about_us_path, data: { no_turbolink: true } %>
+    <a href="/" class="navbar-brand" data-no-turbolink="true" >
+      <div style="font-size: 36px">台中城市發展田調團</div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse flex-column-reverse align-items-end" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "關於田調團", about_us_path, class: 'nav-link', data: { no_turbolink: true } %>
         </li>
         <% Category.where(id: [10, 17, 38]).select(:id, :name, :handle).find_each do |category| %>
-          <li>
-            <%= link_to category.name, "/#{category.handle}", data: { no_turbolink: true } %>
+          <li class="nav-item">
+            <%= link_to category.name, "/#{category.handle}", class: 'nav-link', data: { no_turbolink: true } %>
           </li>
         <% end %>
-        <li>
-          <%= link_to "活動資訊", "/activities" %>
+        <li class="nav-item">
+          <%= link_to "活動資訊", "/activities", class: 'nav-link' %>
         </li>
-        <li>
-          <%= link_to "相關新聞", frontend_news_path %>
+        <li class="nav-item">
+          <%= link_to "相關新聞", frontend_news_path, class: 'nav-link' %>
         </li>
-        <li>
-          <%= link_to "聯絡我們", contact_us_path, data: { no_turbolink: true } %>
+        <li class="nav-item">
+          <%= link_to "聯絡我們", contact_us_path, class: 'nav-link', data: { no_turbolink: true } %>
         </li>
       </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container-fluid -->
+      <%= form_tag search_path, method: :get, class: "d-flex", role: "search" do |f| %>
+        <div class="input-group">
+          <%= text_field_tag :q, "", type: :search, placeholder: "Search", class: "form-control me-2", 'aria-label': "Search" %>
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </nav>
