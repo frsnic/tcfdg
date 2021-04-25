@@ -2,7 +2,6 @@
 <html>
 <head>
   <%= display_meta_tags reverse: true %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%#= stylesheet_link_tag 'application', 'frontend_application', media: 'all', 'data-turbolinks-track' => true %>
   <%#= javascript_include_tag "application", "frontend_application", 'data-turbolinks-track' => true %>
@@ -19,10 +18,10 @@
 
   <%= render 'layouts/frontend/header' %>
 
-  <%= content_tag(:div, flash[:notice].html_safe,  class: "alert alert-info")    if flash[:notice].present? %>
+  <%= content_tag(:div, flash[:notice].html_safe, class: "alert alert-info")     if flash[:notice].present? %>
   <%= content_tag(:div, flash[:success].html_safe, class: "alert alert-success") if flash[:success].present? %>
   <%= content_tag(:div, flash[:warning].html_safe, class: "alert alert-warning") if flash[:warning].present? %>
-  <%= content_tag(:div, flash[:error].html_safe,   class: "alert alert-danger")  if flash[:error].present? %>
+  <%= content_tag(:div, flash[:error].html_safe, class: "alert alert-danger")    if flash[:error].present? %>
 
   <%= yield %>
 
