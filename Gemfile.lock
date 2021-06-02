@@ -119,7 +119,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    dragonfly (1.3.0)
+    dragonfly (1.4.0)
       addressable (~> 2.3)
       multi_json (~> 1.0)
       rack (>= 1.3)
